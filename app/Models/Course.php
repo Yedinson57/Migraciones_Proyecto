@@ -16,7 +16,7 @@ class Course extends Model
 
     // Relacion uno a Uno
     public function training_center(){
-        return $this->belongsTo('App\Models\Training_centers');
+        return $this->belongsTo('App\Models\Training_center');
     }
 
     // Relacion uno a Muchos
