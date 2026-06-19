@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('trainingcenter.center')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('trainingcenter.admin')}}" method="POST" enctype="multipart/form-data">
 
 @csrf
 
@@ -14,6 +14,13 @@
     Nombre:
     <br>
     <input type="text" name="name">
+</label>
+<br>
+
+<label>
+    Location:
+    <br>
+    <input type="text" name="location">
 </label>
 <br>
 

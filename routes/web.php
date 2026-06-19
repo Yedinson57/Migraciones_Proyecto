@@ -17,10 +17,10 @@ use App\Http\Controllers\ComputerController;
 */
 
 Route::get('area/create',[AreaController::class,'create']);
-Route::post('area/category',[AreaController::class,'category'])->name('area.category');
+Route::post('area/admin',[AreaController::class,'admin'])->name('area.admin');
 
 Route::get('trainingcenter/create',[TrainingCenterController::class,'create']);
-Route::post('trainingcenter/center',[TrainingCenterController::class,'center'])->name('trainingcenter.center');
+Route::post('trainingcenter/admin',[TrainingCenterController::class,'admin'])->name('trainingcenter.admin');
 
 Route::get('computer/create',[ComputerController::class,'create']);
-Route::post('computer/type',[ComputerController::class,'type'])->name('computer.type');
+Route::post('computer/admin',[ComputerController::class,'admin'])->name('computer.admin');

@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('area.category')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('area.admin')}}" method="POST" enctype="multipart/form-data">
 
 @csrf
 

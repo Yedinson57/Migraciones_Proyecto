@@ -18,4 +18,11 @@ class Training_center extends Model
     public function courses(){
         return $this->hasMany('App\Models\Course');
     }
+
+    use HasFactory;
+
+       protected $fillable = [
+        'name',
+        'location'
+    ];
 }

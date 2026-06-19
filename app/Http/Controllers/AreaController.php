@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Area;
 
 class AreaController extends Controller
 {
@@ -12,9 +13,9 @@ class AreaController extends Controller
 
     }
 
-    public function category (Request $request){
+    public function admin(Request $request){
 
-    return $request;
+     Area::create($request->all());
 
     }
 }

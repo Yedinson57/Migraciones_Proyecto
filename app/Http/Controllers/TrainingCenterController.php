@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Training_center;
 
 class TrainingCenterController extends Controller
 {
@@ -12,9 +13,9 @@ class TrainingCenterController extends Controller
 
     }
 
-    public function center(Request $request){
+    public function admin(Request $request){
 
-    return $request;
+     Training_center::create($request->all());
 
     }
 }

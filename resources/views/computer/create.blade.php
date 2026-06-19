@@ -6,17 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('computer.type')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('computer.admin')}}" method="POST" enctype="multipart/form-data">
 
 @csrf
 
 <label>
-    Nombre:
+    Numero:
     <br>
-    <input type="text" name="name">
+    <input type="number" name="number">
 </label>
 <br>
 
+<label>
+    Marca:
+    <br>
+    <input type="text" name="brand">
+</label>
+<br>
 
 
 <button type="submit">Enviar Formulario:</button>
