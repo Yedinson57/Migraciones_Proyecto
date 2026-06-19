@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\TrainingCenterController;
 use App\Http\Controllers\ComputerController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::post('trainingcenter/admin',[TrainingCenterController::class,'admin'])->n
 
 Route::get('computer/create',[ComputerController::class,'create']);
 Route::post('computer/admin',[ComputerController::class,'admin'])->name('computer.admin');
+
+Route::get('teacher/create',[TeacherController::class,'create']);
+Route::post('teacher/admin',[TeacherController::class,'admin'])->name('teacher.admin');
