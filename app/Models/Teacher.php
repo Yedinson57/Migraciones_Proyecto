@@ -28,6 +28,6 @@ class Teacher extends Model
         'name',
         'email',
         'area_id',
-        'training_centers_id'
+        'training_center_id'
     ];
 }

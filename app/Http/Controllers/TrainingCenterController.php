@@ -15,7 +15,7 @@ class TrainingCenterController extends Controller
 
     public function admin(Request $request){
 
-     Training_center::create($request->all());
+        Training_center::create($request->all());
 
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             //Llave foranea course
-            $table->unsignedBigInteger('course_id')->nullable()->unique();
+            $table->unsignedBigInteger('course_id')->nullable();
 
             $table->foreign('course_id')
                 ->references('id')
@@ -24,7 +24,7 @@ return new class extends Migration
                 ->onUpdate('set null');
 
             //Llave foranea teacher
-            $table->unsignedBigInteger('teacher_id')->nullable()->unique();
+            $table->unsignedBigInteger('teacher_id')->nullable();
 
             $table->foreign('teacher_id')
                 ->references('id')

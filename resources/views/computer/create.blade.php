@@ -15,17 +15,17 @@
     <br>
     <input type="number" name="number">
 </label>
-<br>
+<br><br>
 
 <label>
     Marca:
     <br>
     <input type="text" name="brand">
 </label>
-<br>
+<br><br>
 
 
-<button type="submit">Enviar Formulario:</button>
+<button type="submit">Enviar Formulario</button>
 </form>
 </body>
 </html>

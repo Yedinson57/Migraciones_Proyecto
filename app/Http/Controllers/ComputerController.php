@@ -15,7 +15,7 @@ class ComputerController extends Controller
 
     public function admin(Request $request){
 
-     Computer::create($request->all());
+        Computer::create($request->all());
 
     }
 }

@@ -11,15 +11,15 @@
 @csrf
 
 <label>
-    Nombre:
+    Nombre del area:
     <br>
     <input type="text" name="name">
 </label>
-<br>
+<br><br>
 
 
 
-<button type="submit">Enviar Formulario:</button>
+<button type="submit">Enviar Formulario</button>
 </form>
 </body>
 </html>

@@ -15,7 +15,7 @@ class AreaController extends Controller
 
     public function admin(Request $request){
 
-     Area::create($request->all());
+        Area::create($request->all());
 
     }
 }

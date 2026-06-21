@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->String('name');
             $table->String('email');
-            $table->integer('cell number');
+            $table->integer('cell_number');
 
             //Llave foranea course
-            $table->unsignedBigInteger('course_id')->nullable()->unique();
+            $table->unsignedBigInteger('course_id')->nullable();
 
             $table->foreign('course_id')
                 ->references('id')
@@ -27,7 +27,7 @@ return new class extends Migration
                 ->onUpdate('set null');
 
             //Llave foranea computer
-            $table->unsignedBigInteger('computer_id')->nullable()->unique();
+            $table->unsignedBigInteger('computer_id')->nullable();
 
             $table->foreign('computer_id')
                 ->references('id')

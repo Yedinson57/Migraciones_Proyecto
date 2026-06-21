@@ -19,4 +19,12 @@ class Apprentice extends Model
     public function course(){
         return $this->belongsTo('App\Models\Course');
     }
+
+    protected $fillable = [
+        'name',
+        'email',
+        'cell_number',
+        'course_id',
+        'computer_id',
+    ];
 }

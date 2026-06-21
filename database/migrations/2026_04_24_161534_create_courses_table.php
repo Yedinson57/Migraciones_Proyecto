@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('day');
 
             //Llave foranea area
-            $table->unsignedBigInteger('area_id')->nullable()->unique();
+            $table->unsignedBigInteger('area_id')->nullable();
 
             $table->foreign('area_id')
                 ->references('id')
@@ -26,7 +26,7 @@ return new class extends Migration
                 ->onUpdate('set null');
 
             //Llave foranea training_center
-            $table->unsignedBigInteger('training_center_id')->nullable()->unique();
+            $table->unsignedBigInteger('training_center_id')->nullable();
 
             $table->foreign('training_center_id')
                 ->references('id')

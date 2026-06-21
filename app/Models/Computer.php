@@ -16,7 +16,7 @@ class Computer extends Model
 
     use HasFactory;
 
-       protected $fillable = [
+    protected $fillable = [
         'number',
         'brand'
     ];

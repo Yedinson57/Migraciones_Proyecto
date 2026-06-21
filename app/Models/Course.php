@@ -28,4 +28,11 @@ class Course extends Model
     public function teachers(){
         return $this->belongsToMany('App\Models\Teacher');
     }
+
+    protected $fillable = [
+        'course_number',
+        'day',
+        'area_id',
+        'training_center_id',
+    ];
 }
