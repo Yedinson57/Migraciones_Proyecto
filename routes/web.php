@@ -18,6 +18,7 @@ use App\Http\Controllers\TrainingCenterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function () { return view('home'); })->name('home');
 
 Route::get('area/create',[AreaController::class,'create']);
 Route::post('area/admin',[AreaController::class,'admin'])->name('area.admin');

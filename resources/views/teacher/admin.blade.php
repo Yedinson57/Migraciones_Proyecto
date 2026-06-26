@@ -1,12 +1,7 @@
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+@section('content')
 
-<body>
     <form action="{{ route('teacher.admin') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>
@@ -40,7 +35,6 @@
         <br>
 
         <select name="training_center_id">
-
             <option value="">Seleccione un centro de formación</option>
             @foreach ($training_centers as $training)
                 <option value="{{ $training->id }}">
@@ -51,6 +45,5 @@
         <br><br>
         <button type="submit">Enviar Formulario</button>
     </form>
-</body>
 
-</html>
+@endsection
