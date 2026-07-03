@@ -4,6 +4,7 @@
 
     <form action="{{ route('trainingcenter.admin') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        <h2>Centro de formación</h2>
         <label>
             Nombre:
             <br>

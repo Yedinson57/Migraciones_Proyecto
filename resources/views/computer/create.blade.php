@@ -5,7 +5,7 @@
 <form action="{{route('computer.admin')}}" method="POST" enctype="multipart/form-data">
 
     @csrf
-
+    <h2>Computador</h2>
     <label>
         Numero:
         <br>

@@ -13,9 +13,25 @@ class ComputerController extends Controller
 
     }
 
+    public function index(){
+
+        $computers = Computer::all();
+
+        return view('computer.index', compact('computers'));
+
+    }
+
     public function admin(Request $request){
 
-        Computer::create($request->all());
+        return Computer::create($request->all());
 
+    }
+
+    public function show ($id){
+
+        $computer=Computer::find($id);
+
+        return view('computer.show',compact('computer'));
+        
     }
 }

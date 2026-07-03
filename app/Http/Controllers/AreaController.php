@@ -13,9 +13,26 @@ class AreaController extends Controller
 
     }
 
-    public function admin(Request $request){
+    public function index(){
 
-        Area::create($request->all());
+        $areas = Area::all();
+
+        return view('area.index',compact('areas'));
 
     }
+
+    public function admin(Request $request){
+
+        return Area::create($request->all());
+
+    }
+
+    public function show ($id){
+
+        $area=Area::find($id);
+
+        return view('area.show',compact('area'));
+        
+    }
+
 }

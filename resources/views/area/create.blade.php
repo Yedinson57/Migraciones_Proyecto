@@ -5,7 +5,7 @@
 <form action="{{route('area.admin')}}" method="POST" enctype="multipart/form-data">
 
     @csrf
-
+    <h2>Area</h2>
     <label>
         Nombre del area:
         <br>

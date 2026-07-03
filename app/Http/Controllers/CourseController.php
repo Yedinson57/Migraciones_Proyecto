@@ -15,10 +15,26 @@ class CourseController extends Controller
     $training_centers=Training_center::all();
         return view('course.admin',compact('areas','training_centers'));
     }
+
+    public function index(){
+
+        $courses = Course::all();
+
+        return view('course.index', compact('courses'));
+
+    }
     
     public function admin(Request $request){
 
-        Course::create($request->all());
+        return Course::create($request->all());
 
+    }
+
+    public function show ($id){
+
+        $course=Course::find($id);
+
+        return view('course.show',compact('course'));
+        
     }
 }

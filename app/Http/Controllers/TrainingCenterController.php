@@ -13,9 +13,25 @@ class TrainingCenterController extends Controller
 
     }
 
+    public function index(){
+
+        $trainingcenters = Training_center::all();
+
+        return view('trainingcenter.index', compact('trainingcenters'));
+
+    }
+
     public function admin(Request $request){
 
-        Training_center::create($request->all());
+        return Training_center::create($request->all());
 
+    }
+
+    public function show ($id){
+
+        $trainingcenter=Training_center::find($id);
+
+        return view('trainingcenter.show',compact('trainingcenter'));
+        
     }
 }

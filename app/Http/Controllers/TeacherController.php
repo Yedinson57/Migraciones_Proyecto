@@ -16,10 +16,27 @@ class TeacherController extends Controller
         return view('teacher.admin',compact('areas','training_centers'));
 
     }
+
+    public function index(){
+
+        $teachers = Teacher::all();
+
+        return view('teacher.index', compact('teachers'));
+
+    }
+
     
     public function admin(Request $request){
 
-        Teacher::create($request->all());
+        return Teacher::create($request->all());
 
+    }
+
+    public function show ($id){
+
+        $teacher=Teacher::find($id);
+
+        return view('teacher.show',compact('teacher'));
+        
     }
 }

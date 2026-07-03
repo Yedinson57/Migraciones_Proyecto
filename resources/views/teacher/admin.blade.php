@@ -4,6 +4,7 @@
 
     <form action="{{ route('teacher.admin') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        <h2>Instructor</h2>
         <label>
             Nombre:
             <br>

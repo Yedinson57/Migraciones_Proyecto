@@ -16,10 +16,26 @@ class ApprenticeController extends Controller
         $computers=Computer::all();
         return view('apprentice.admin',compact('courses','computers'));
     }
+
+    public function index(){
+
+        $apprentices = Apprentice::all();
+
+        return view('apprentice.index', compact('apprentices'));
+
+    }
     
     public function admin(Request $request){
 
-        Apprentice::create($request->all());
+        return Apprentice::create($request->all());
 
+    }
+
+    public function show ($id){
+
+        $apprentice=Apprentice::find($id);
+
+        return view('apprentice.show',compact('apprentice'));
+        
     }
 }

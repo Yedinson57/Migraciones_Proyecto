@@ -4,6 +4,7 @@
 
 <form action="{{ route('course.admin') }}" method="POST" enctype="multipart/form-data">
     @csrf
+    <h2>Curso</h2>
     <label>
         Numero de curso:
         <br>
