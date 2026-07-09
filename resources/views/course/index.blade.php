@@ -10,6 +10,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Numero del curso</th>
+                    <th>Dia</th>
                     <th>Area</th>
                     <th>Centro de formación</th>
                 </tr>
