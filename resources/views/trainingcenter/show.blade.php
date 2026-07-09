@@ -8,7 +8,7 @@
 
         <div class="card-header bg-primary text-white">
             <h3 class="mb-0">
-                {{ $computer['name'] }}
+                {{ $trainingcenter['name'] }}
             </h3>
         </div>
 
@@ -19,22 +19,22 @@
                 <div class="col-md-6 mb-3">
                     <label class="fw-bold">ID</label>
                     <div class="form-control">
-                        {{ $computer['id'] }}
+                        {{ $trainingcenter['id'] }}
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label class="fw-bold">Numero</label>
+                <label class="fw-bold">Nombre</label>
                 <div class="form-control">
-                    {{ $computer['number'] }}
+                    {{ $trainingcenter['name'] }}
                 </div>
             </div>
 
             <div class="mb-3">
-                <label class="fw-bold">Marca</label>
+                <label class="fw-bold">Ubicacion</label>
                 <div class="form-control">
-                    {{ $computer['brand'] }}
+                    {{ $trainingcenter['location'] }}
                 </div>
             </div>
 
@@ -45,14 +45,14 @@
                 <div class="col-md-6">
                     <label class="fw-bold">Fecha de creación</label>
                     <div class="form-control">
-                        {{ \Carbon\Carbon::parse($computer['created_at'])->format('d/m/Y H:i') }}
+                        {{ \Carbon\Carbon::parse($trainingcenter['created_at'])->format('d/m/Y H:i') }}
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <label class="fw-bold">Última actualización</label>
                     <div class="form-control">
-                        {{ \Carbon\Carbon::parse($computer['updated_at'])->format('d/m/Y H:i') }}
+                        {{ \Carbon\Carbon::parse($trainingcenter['updated_at'])->format('d/m/Y H:i') }}
                     </div>
                 </div>
 

@@ -49,6 +49,10 @@
                     </div>
                 </div>
 
+                <div class="mt-4 text-end">
+                    <a href="{{ url()->previous() }}" class="btn btn-secondary">Volver</a>
+                </div>
+
             </div>
 
         </div>
