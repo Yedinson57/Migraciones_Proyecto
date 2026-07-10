@@ -33,15 +33,15 @@
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Formularios
+              Listas
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/area/create">Area</a></li>
-              <li><a class="dropdown-item" href="/trainingcenter/create">trainingcenter</a></li>
-              <li><a class="dropdown-item" href="/computer/create">Computer</a></li>
-              <li><a class="dropdown-item" href="/course/create">Course</a></li>
-              <li><a class="dropdown-item" href="/teacher/create">Teacher</a></li>
-              <li><a class="dropdown-item" href="/apprentice/create">Apprentice</a></li>
+              <li><a class="dropdown-item" href="/area/list">Area</a></li>
+              <li><a class="dropdown-item" href="/trainingcenter/list">trainingcenter</a></li>
+              <li><a class="dropdown-item" href="/computer/list">Computer</a></li>
+              <li><a class="dropdown-item" href="/course/list">Course</a></li>
+              <li><a class="dropdown-item" href="/teacher/list">Teacher</a></li>
+              <li><a class="dropdown-item" href="/apprentice/list">Apprentice</a></li>
             </ul>
           </li>
           
