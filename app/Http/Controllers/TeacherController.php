@@ -39,4 +39,20 @@ class TeacherController extends Controller
         return view('teacher.show',compact('teacher'));
         
     }
+
+    public function edit(Teacher $teacher){
+
+        $areas = Area::all();
+        $trainingcenters = Training_center::all();
+
+        return view('teacher.edit', compact('teacher', 'areas', 'trainingcenters'));
+    }
+
+    public function update(Request $request, Teacher $teacher){
+
+        $teacher->update($request->all());
+
+        return redirect()->route('teacher.index');
+
+    }
 }

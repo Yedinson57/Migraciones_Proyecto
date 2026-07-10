@@ -46,7 +46,7 @@
             </div>
 
             <div class="mb-3">
-                <label class="fw-bold">ID del Centro de formación</label>
+                <label class="fw-bold">ID del Centro de formacion</label>
                 <div class="form-control">
                     {{ $teacher['training_center_id'] }}
                 </div>

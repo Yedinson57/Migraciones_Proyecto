@@ -14,6 +14,9 @@
                 </tr>
             </thead>
             <tbody>
+                <a href="{{ route('trainingcenter.create') }}" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Nuevo Centro
+                </a>
                 @foreach ($trainingcenters as $trainingcenter)
                     <tr>
                         <br>
@@ -21,6 +24,7 @@
                         <td>{{ $trainingcenter->name }}</td>
                         <td>{{ $trainingcenter->location }}</td>
                         <td><a href="{{ route('trainingcenter.show', $trainingcenter->id) }}">Mostrar</a></td>
+                        <td><a href="{{ route('trainingcenter.edit', $trainingcenter->id) }}">Editar</a></td>
 
                         <br>
 

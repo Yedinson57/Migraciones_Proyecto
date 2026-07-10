@@ -14,6 +14,9 @@
                 </tr>
             </thead>
             <tbody>
+                <a href="{{ route('computer.create') }}" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Nuevo Computador
+                </a>
                 @foreach ($computers as $computer)
                     <tr>
                         <br>
@@ -21,6 +24,7 @@
                         <td>{{ $computer->number }}</td>
                         <td>{{ $computer->brand }}</td>
                         <td><a href="{{ route('computer.show', $computer->id) }}">Mostrar</a></td>
+                        <td><a href="{{ route('computer.edit', $computer->id) }}">Editar</a></td>
 
                         <br>
 

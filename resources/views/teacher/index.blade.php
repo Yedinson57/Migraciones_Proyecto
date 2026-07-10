@@ -16,6 +16,9 @@
                 </tr>
             </thead>
             <tbody>
+                <a href="{{ route('teacher.create') }}" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Nuevo Instructor
+                </a>
                 @foreach ($teachers as $teacher)
                     <tr>
                         <br>
@@ -25,6 +28,7 @@
                         <td>{{ $teacher->area_id }}</td>
                         <td>{{ $teacher->training_center_id }}</td>
                         <td><a href="{{ route('teacher.show', $teacher->id) }}">Mostrar</a></td>
+                        <td><a href="{{ route('teacher.edit', $teacher->id) }}">Editar</a></td>
 
                         <br>
 

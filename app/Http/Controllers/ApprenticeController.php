@@ -38,4 +38,20 @@ class ApprenticeController extends Controller
         return view('apprentice.show',compact('apprentice'));
         
     }
+
+    public function edit(Apprentice $apprentice){
+
+        $courses = Course::all();
+        $computers = Computer::all();
+
+        return view('apprentice.edit', compact('apprentice','courses','computers'));
+    }
+
+    public function update(Request $request, Apprentice $apprentice){
+
+        $apprentice->update($apprentice->all());
+
+        return redirect()->route('apprentice.index');
+
+    }
 }

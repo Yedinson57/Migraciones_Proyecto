@@ -10,9 +10,16 @@
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Cell_number</th>
+                    <th>Curso</th>
+                    <th>Computador</th>
                 </tr>
             </thead>
             <tbody>
+                <a href="{{ route('apprentice.create') }}" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Nuevo Aprendiz
+                </a>
                 @foreach ($apprentices as $apprentice)
                     <tr>
                         <br>
@@ -23,6 +30,7 @@
                         <td>{{ $apprentice->course_id }}</td>
                         <td>{{ $apprentice->computer_id }}</td>
                         <td><a href="{{ route('apprentice.show', $apprentice->id) }}">Mostrar</a></td>
+                        <td><a href="{{ route('apprentice.edit', $apprentice->id) }}">Editar</a></td>
 
                         <br>
 

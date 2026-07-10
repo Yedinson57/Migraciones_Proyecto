@@ -34,4 +34,17 @@ class ComputerController extends Controller
         return view('computer.show',compact('computer'));
         
     }
+
+    public function edit(Computer $computer){
+
+        return view('computer.edit', compact('computer'));
+    }
+
+    public function update(Request $request, Computer $computer){
+
+        $computer->update($request->all());
+
+        return redirect()->route('computer.index');
+
+    }
 }
