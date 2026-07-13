@@ -16,7 +16,7 @@
         </label>
         <br><br>
 
-        <button type="submit">Actualizar Area</button>
+        <button type="submit" class="btn btn-success">Actualizar Area</button>
 
     </form>
 @endsection

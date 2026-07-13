@@ -29,6 +29,13 @@
                         <td>{{ $teacher->training_center_id }}</td>
                         <td><a href="{{ route('teacher.show', $teacher->id) }}">Mostrar</a></td>
                         <td><a href="{{ route('teacher.edit', $teacher->id) }}">Editar</a></td>
+                        <td>
+                            <form action="{{ route('teacher.destroy', $teacher->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Eliminar Instructor</button>
+                            </form>
+                        </td>
 
                         <br>
 

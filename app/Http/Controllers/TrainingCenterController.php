@@ -40,11 +40,17 @@ class TrainingCenterController extends Controller
         return view('trainingcenter.edit', compact('trainingcenter'));
     }
 
-    public function update(Request $request, Area $area){
+    public function update(Request $request, Training_center $trainingcenter){
 
         $trainingcenter->update($request->all());
 
         return redirect()->route('trainingcenter.index');
 
+    }
+
+    public function destroy(Training_center $trainingcenter)
+    {
+        $trainingcenter->delete();
+        return redirect()->route('trainingcenter.index');
     }
 }

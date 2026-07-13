@@ -31,6 +31,13 @@
                         <td>{{ $apprentice->computer_id }}</td>
                         <td><a href="{{ route('apprentice.show', $apprentice->id) }}">Mostrar</a></td>
                         <td><a href="{{ route('apprentice.edit', $apprentice->id) }}">Editar</a></td>
+                        <td>
+                            <form action="{{ route('apprentice.destroy', $apprentice->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Eliminar Aprendiz</button>
+                            </form>
+                        </td>
 
                         <br>
 

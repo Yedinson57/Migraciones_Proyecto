@@ -25,6 +25,13 @@
                         <td>{{ $computer->brand }}</td>
                         <td><a href="{{ route('computer.show', $computer->id) }}">Mostrar</a></td>
                         <td><a href="{{ route('computer.edit', $computer->id) }}">Editar</a></td>
+                        <td>
+                            <form action="{{ route('computer.destroy', $computer->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Eliminar Computador</button>
+                            </form>
+                        </td>
 
                         <br>
 

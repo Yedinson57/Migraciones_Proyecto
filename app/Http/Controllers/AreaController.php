@@ -48,4 +48,10 @@ class AreaController extends Controller
 
     }
 
+    public function destroy(Area $area)
+    {
+        $area->delete();
+        return redirect()->route('area.index');
+    }
+
 }

@@ -36,7 +36,7 @@
             <select name="course_id">
                 @foreach($courses as $course)
                     <option value="{{ $course->id }}" {{ old('course_id', $apprentice->course_id) == $course->id ? 'selected' : '' }}>
-                        {{ $course->name }}
+                        {{ $course->course_number }}
                     </option>
                 @endforeach
             </select>
@@ -49,14 +49,14 @@
             <select name="computer_id">
                 @foreach($computers as $computer)
                     <option value="{{ $computer->id }}" {{ old('computer_id', $apprentice->computer_id) == $computer->id ? 'selected' : '' }}>
-                        {{ $computer->name }}
+                        {{ $computer->number }}
                     </option>
                 @endforeach
             </select>
         </label>
         <br><br>
 
-        <button type="submit">Actualizar Aprendiz</button>
+        <button type="submit" class="btn btn-success">Actualizar Aprendiz</button>
 
     </form>
 @endsection

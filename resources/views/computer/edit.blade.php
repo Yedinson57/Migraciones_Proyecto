@@ -23,7 +23,7 @@
         </label>
         <br><br>
 
-        <button type="submit">Actualizar Computador</button>
+        <button type="submit" class="btn btn-success">Actualizar Computador</button>
 
     </form>
 @endsection

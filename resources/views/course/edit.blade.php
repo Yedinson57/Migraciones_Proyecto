@@ -49,7 +49,7 @@
         </label>
         <br><br>
 
-        <button type="submit">Actualizar Curso</button>
+        <button type="submit" class="btn btn-success">Actualizar Curso</button>
 
     </form>
 @endsection

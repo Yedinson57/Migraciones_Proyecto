@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Apprentice;
-use App\Models\Computer;
 use App\Models\Course;
+use App\Models\Computer;
 
 
 class ApprenticeController extends Controller
@@ -53,5 +53,11 @@ class ApprenticeController extends Controller
 
         return redirect()->route('apprentice.index');
 
+    }
+
+    public function destroy(Apprentice $apprentice)
+    {
+        $apprentice->delete();
+        return redirect()->route('apprentice.index');
     }
 }

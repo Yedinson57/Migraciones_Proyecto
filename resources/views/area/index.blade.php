@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <a href="{{ route('computer.create') }}" class="btn btn-success">
+                <a href="{{ route('area.create') }}" class="btn btn-success">
                     <i class="bi bi-plus-circle"></i> Nueva Area
                 </a>
                 @foreach ($areas as $area)
@@ -23,6 +23,13 @@
                         <td>{{ $area->name }}</td>
                         <td><a href="{{ route('area.show', $area->id) }}">Mostrar</a></td>
                         <td><a href="{{ route('area.edit', $area->id) }}">Editar</a></td>
+                        <td>
+                            <form action="{{ route('area.destroy', $area->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Eliminar Area</button>
+                            </form>
+                        </td>
 
                         <br>
 

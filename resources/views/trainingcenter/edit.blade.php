@@ -22,7 +22,7 @@
         </label>
         <br><br>
 
-        <button type="submit">Actualizar Centro</button>
+        <button type="submit" class="btn btn-success">Actualizar Centro</button>
 
     </form>
 @endsection

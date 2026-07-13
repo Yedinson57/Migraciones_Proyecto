@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>LISTAR AREAS</h1>
+<h1>LISTAR CURSOS</h1>
 
 <div class ="container">
         <table id="idCourse" class="table table-striped table-bordered" style="width:100%">
@@ -29,7 +29,13 @@
                         <td>{{ $course->training_center_id }}</td>
                         <td><a href="{{ route('course.show', $course->id) }}">Mostrar</a></td>
                         <td><a href="{{ route('course.edit', $course->id) }}">Editar</a></td>
-                        
+                        <td>
+                            <form action="{{ route('course.destroy', $course->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Eliminar Curso</button>
+                            </form>
+                        </td>
 
                         <br>
 
