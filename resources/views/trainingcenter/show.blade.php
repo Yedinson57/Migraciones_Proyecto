@@ -1,70 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="py-5 rounded-4" style="background-color: #f4f6f9;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                
+                <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                    
+                    <div class="card-header text-white text-center py-4" style="background-color: #39A900; border-bottom: none;">
+                        <h4 class="mb-0 fw-bold">Sede / Centro de Formación</h4>
+                        <p class="mb-0 mt-1 small opacity-75">{{ $trainingcenter['name'] }}</p>
+                    </div>
+                    
+                    <div class="card-body p-4 p-md-5 bg-white">
+                        
+                        <div class="mb-4">
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID de Sede</span>
+                            <div class="p-3 bg-light rounded-3 fw-bold text-secondary border-start border-3 border-secondary">
+                                #{{ $trainingcenter['id'] }}
+                            </div>
+                        </div>
 
-<div class="container mt-5">
+                        <div class="mb-4">
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Nombre del Centro</span>
+                            <div class="p-3 bg-light rounded-3 fw-bold text-dark">
+                                {{ $trainingcenter['name'] }}
+                            </div>
+                        </div>
 
-    <div class="card shadow-lg border-0">
+                        <div class="mb-4">
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Ubicación Geográfica</span>
+                            <div class="p-3 bg-light rounded-3 fw-medium text-dark">
+                                {{ $trainingcenter['location'] }}
+                            </div>
+                        </div>
 
-        <div class="card-header bg-primary text-white">
-            <h3 class="mb-0">
-                {{ $trainingcenter['name'] }}
-            </h3>
+                        <hr class="my-4 opacity-25">
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-sm-6">
+                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Fecha de registro</span>
+                                <div class="p-2 bg-light rounded-2 small text-secondary">
+                                    {{ \Carbon\Carbon::parse($trainingcenter['created_at'])->format('d/m/Y H:i') }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Última modificación</span>
+                                <div class="p-2 bg-light rounded-2 small text-secondary">
+                                    {{ \Carbon\Carbon::parse($trainingcenter['updated_at'])->format('d/m/Y H:i') }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <a href="{{ url()->previous() }}" class="btn btn-dark px-4 py-2 fw-bold rounded-3">
+                                Volver al Listado
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
         </div>
-
-        <div class="card-body">
-
-            <div class="row">
-
-                <div class="col-md-6 mb-3">
-                    <label class="fw-bold">ID</label>
-                    <div class="form-control">
-                        {{ $trainingcenter['id'] }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label class="fw-bold">Nombre</label>
-                <div class="form-control">
-                    {{ $trainingcenter['name'] }}
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label class="fw-bold">Ubicacion</label>
-                <div class="form-control">
-                    {{ $trainingcenter['location'] }}
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="row">
-
-                <div class="col-md-6">
-                    <label class="fw-bold">Fecha de creación</label>
-                    <div class="form-control">
-                        {{ \Carbon\Carbon::parse($trainingcenter['created_at'])->format('d/m/Y H:i') }}
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="fw-bold">Última actualización</label>
-                    <div class="form-control">
-                        {{ \Carbon\Carbon::parse($trainingcenter['updated_at'])->format('d/m/Y H:i') }}
-                    </div>
-                </div>
-
-                <div class="mt-4 text-end">
-                    <a href="{{ url()->previous() }}" class="btn btn-secondary">Volver</a>
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
-
 </div>
 @endsection

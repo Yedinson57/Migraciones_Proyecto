@@ -1,28 +1,62 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="py-5 rounded-4" style="background-color: #f4f6f9;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                
+                <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                    
+                    <div class="card-header text-white text-center py-4" style="background-color: #39A900; border-bottom: none;">
+                        <h4 class="mb-0 fw-bold">Actualizar Centro de Formación</h4>
+                        <p class="mb-0 mt-1 small opacity-75">Modifique la información base del complejo o sede</p>
+                    </div>
+                    
+                    <div class="card-body p-4 p-md-5 bg-white">
+                        <form action="{{ route('trainingcenter.update', $trainingcenter) }}" method="POST">
+                            @csrf
+                            @method('put')
 
-    <h1>Actualizar Centro de formacion</h1>
+                            <div class="mb-4">
+                                <label for="name" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Nombre del Centro</label>
+                                <input type="text" 
+                                    id="name"
+                                    name="name" 
+                                    class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium" 
+                                    placeholder="Nombre completo de la sede"
+                                    value="{{ old('name', $trainingcenter->name) }}" 
+                                    required>
+                            </div>
 
-    <form action="{{ route('trainingcenter.update', $trainingcenter) }}" method="POST">
+                            <div class="mb-4">
+                                <label for="location" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Ubicación / Dirección</label>
+                                <input type="text" 
+                                    id="location"
+                                    name="location" 
+                                    class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium" 
+                                    placeholder="Ciudad o complejo regional"
+                                    value="{{ old('location', $trainingcenter->location) }}" 
+                                    required>
+                            </div>
 
-        @csrf
-        @method('put')
+                            <hr class="my-4 opacity-25">
 
-        <label>
-            Nombre:
-            <br>
-            <input type="text" name="name" value="{{ old('name', $trainingcenter->name)}}">
-        </label>
-        <br><br>
-        <label>
-            Ubicacion:
-            <br>
-            <input type="text" name="location" value="{{ old('location', $trainingcenter->location)}}">
-        </label>
-        <br><br>
+                            <div class="d-flex justify-content-center align-items-center gap-2 mt-4">
+                                <a href="{{ url()->previous() }}" class="btn btn-light border fw-bold px-4 py-2 rounded-3">
+                                    Cancelar
+                                </a>
+                                <button type="submit" class="btn text-white fw-bold px-4 py-2 rounded-3 shadow-sm" style="background-color: #39A900;">
+                                    Actualizar Centro
+                                </button>
+                            </div>
+                        </form>
+                    </div>
 
-        <button type="submit" class="btn btn-success">Actualizar Centro</button>
-
-    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

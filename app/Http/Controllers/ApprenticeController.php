@@ -49,7 +49,7 @@ class ApprenticeController extends Controller
 
     public function update(Request $request, Apprentice $apprentice){
 
-        $apprentice->update($apprentice->all());
+        $apprentice->update($request->all());
 
         return redirect()->route('apprentice.index');
 
