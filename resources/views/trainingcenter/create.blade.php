@@ -48,6 +48,9 @@
                             
                         </form>
                     </div>
+                    <a href="{{ route('trainingcenter.index') }}" class="btn text-white fw-bold px-4 py-2 shadow-sm d-inline-flex align-items-center gap-2" style="background-color: #39A900;">
+                        Revisar Registros
+                    </a>
                 </div>
                 
             </div>

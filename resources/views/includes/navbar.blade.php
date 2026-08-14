@@ -2,7 +2,7 @@
     <div class="container-fluid">
       
       <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="/">
-        <img src="https://www.sena.edu.co/Paginas/img/logo-sena-blanco.png" alt="logo_sena" width="45" height="45" class="d-inline-block align-text-top me-2">
+        <img src="https://diba.planeacionycalidad.org/diba/Views/representante/logo-blanco-sena-sin-fondo.png" alt="logo_sena" width="80" height="45" class="d-inline-block align-text-top me-2">
         <span class="fs-5 tracking-tight">Admin Sena</span>
       </a>
       
@@ -17,36 +17,39 @@
             <a class="nav-link text-white px-2 active fw-semibold" aria-current="page" href="/">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white px-2" href="/area/create">Area</a>
+            <a class="nav-link text-white px-2 active fw-semibold" aria-current="page" href="/about">¿Quienes Somos?</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white px-2" href="/trainingcenter/create">Centro</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white px-2" href="/computer/create">Equipos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white px-2" href="/course/create">Cursos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white px-2" href="/teacher/create">Instructores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white px-2 me-2" href="/apprentice/create">Aprendices</a>
-          </li>
-          
+
           <li class="nav-item dropdown">
-            <a class="btn btn-light dropdown-toggle text-dark fw-medium px-3 spear-dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Ver Listas
+            <a class="dropdown-toggle text-light text-decoration-none fw-medium px-3 spear-dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administracion
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2">
-              <li><a class="dropdown-item py-2" href="/area/list">📁 Lista Areas</a></li>
-              <li><a class="dropdown-item py-2" href="/trainingcenter/list">🏢 Lista Centros</a></li>
-              <li><a class="dropdown-item py-2" href="/computer/list">💻 Lista Equipos</a></li>
-              <li><a class="dropdown-item py-2" href="/course/list">📚 Lista Cursos</a></li>
-              <li><a class="dropdown-item py-2" href="/teacher/list">👨‍🏫 Lista Instructores</a></li>
-              <li><a class="dropdown-item py-2" href="/apprentice/list">👨‍🎓 Lista Aprendices</a></li>
+              <li><a class="dropdown-item py-2" href="/area/create">Area</a></li>
+              <li><a class="dropdown-item py-2" href="/trainingcenter/create">Centro</a></li>
+              <li><a class="dropdown-item py-2" href="/computer/create">Equipo</a></li>
+              <li><a class="dropdown-item py-2" href="/course/create">Curso</a></li>
+              <li><a class="dropdown-item py-2" href="/teacher/create">Instructor</a></li>
+              <li><a class="dropdown-item py-2" href="/apprentice/create">Aprendiz</a></li>
             </ul>
+          </li>
+          
+          <form action="{{ route('apprentice.index') }}" method="GET" class="d-flex me-lg-3 my-2 my-lg-0" role="search">
+              <div class="input-group">
+                  <input class="form-control border-0 shadow-sm" 
+                        type="search" 
+                        name="search" 
+                        placeholder="Buscar registros" 
+                        aria-label="Buscar" 
+                        value="{{ request('search') }}">
+                  <button class="btn btn-dark fw-bold px-3" type="submit">
+                      <i class="bi bi-search"></i>
+                  </button>
+              </div>
+          </form>
+
+          <li class="nav-item">
+            <a class="btn btn-light nav-link text-dark px-2 active fw-semibold" aria-current="page" href="/login">Iniciar Sesion</a>
           </li>
 
         </ul>
