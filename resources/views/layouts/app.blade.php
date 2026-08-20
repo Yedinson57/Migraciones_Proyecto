@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxeV7Ot2jzuxHNpt_MI-iPBcUvI-jrKBXdas8Vzp7_Nw&s=10" type="image/png">
         <title>Admin Sena</title>
 
         <!-- Enlaces a los archivos CSS de Bootstrap -->

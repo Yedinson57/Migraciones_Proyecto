@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
+<script>
+    if (!localStorage.getItem('user_session')) {
+        alert('Acceso denegado: Debes iniciar sesión para acceder al panel de administración.');
+        window.location.href = "{{ route('login') }}";
+    }
+</script>
+
 <div class="py-4">
     <div class="container">
         
@@ -41,12 +49,12 @@
                                     </td>
                                     <td>
                                         <span class="badge bg-light text-dark border px-3 py-2 rounded">
-                                            Ficha: {{ $apprentice->course_id }}
+                                            Ficha: {{ $apprentice->course?->course_number ?? 'Sin Curso' }}
                                         </span>
                                     </td>
                                     <td>
                                         <span class="badge bg-dark-subtle text-dark border px-3 py-2 rounded">
-                                            Equipo N° {{ $apprentice->computer_id }}
+                                            Equipo N° {{ $apprentice->computer?->number ?? 'Sin PC'}}
                                         </span>
                                     </td>
                                     

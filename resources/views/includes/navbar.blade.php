@@ -20,7 +20,7 @@
             <a class="nav-link text-white px-2 active fw-semibold" aria-current="page" href="/about">¿Quienes Somos?</a>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" id="adminDropdownNav">
             <a class="dropdown-toggle text-light text-decoration-none fw-medium px-3 spear-dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Administracion
             </a>
@@ -48,11 +48,71 @@
               </div>
           </form>
 
-          <li class="nav-item">
-            <a class="btn btn-light nav-link text-dark px-2 active fw-semibold" aria-current="page" href="/login">Iniciar Sesion</a>
-          </li>
+          <div id="authContainer" class="d-flex align-items-center">
+            <!-- Se llena mediante JavaScript -->
+          </div>
 
-        </ul>
-      </div>
+        </div>
     </div>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAuthStatus();
+    });
+
+    function checkAuthStatus() {
+        const userSession = JSON.parse(localStorage.getItem('user_session'));
+        const authContainer = document.getElementById('authContainer');
+        const adminDropdown = document.getElementById('adminDropdownNav');
+
+        // SI HAY SESIÓN EN LOCALSTORAGE
+        if (userSession) {
+            // DESBLOQUEAR MENÚ DE ADMINISTRACIÓN
+            if (adminDropdown) adminDropdown.classList.remove('d-none');
+
+            // MOSTRAR FOTO DE PERFIL CON MENU DESPLEGABLE
+            authContainer.innerHTML = `
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="${userSession.avatar}" alt="${userSession.name}" width="38" height="38" class="rounded-circle border border-2 border-white shadow-sm me-2 object-fit-cover">
+                        <span class="fw-bold d-none d-md-inline small">${userSession.name}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg rounded-3 mt-2" aria-labelledby="profileDropdown">
+                        <li>
+                            <div class="px-3 py-2 border-bottom">
+                                <p class="fw-bold mb-0 text-dark small">${userSession.name}</p>
+                                <small class="text-muted">${userSession.email}</small>
+                            </div>
+                        </li>
+                        <li>
+                            <button onclick="logout()" class="dropdown-item text-danger fw-bold py-2">
+                                <i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            `;
+        } 
+        // SI NO HAY SESIÓN
+        else {
+            // BLOQUEAR/OCULTAR MENÚ DE ADMINISTRACIÓN
+            if (adminDropdown) adminDropdown.classList.add('d-none');
+
+            // MOSTRAR BOTÓN DE INICIAR SESIÓN
+            authContainer.innerHTML = `
+                <a href="{{ route('login') }}" class="btn btn-light text-success fw-bold btn-sm px-3 rounded-3 shadow-sm d-flex align-items-center gap-1">
+                    <i class="bi bi-person-circle"></i> Iniciar Sesión
+                </a>
+            `;
+        }
+    }
+
+    // Función para cerrar sesión
+    function logout() {
+        localStorage.removeItem('user_session');
+        localStorage.removeItem('user_role');
+        checkAuthStatus();
+        window.location.href = "{{ url('/') }}";
+    }
+</script>

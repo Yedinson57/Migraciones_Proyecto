@@ -22,6 +22,8 @@ Route::get('/', function () { return view('home'); })->name('home');
 
 Route::get('/about', function () { return view('about'); })->name('about');
 
+Route::get('/login', function () {return view('auth.login');})->name('login');
+
 Route::get('area/create',[AreaController::class,'create'])->name('area.create');
 Route::post('area/admin',[AreaController::class,'admin'])->name('area.admin');
 Route::get('area/list',[AreaController::class,'index'])->name('area.index');

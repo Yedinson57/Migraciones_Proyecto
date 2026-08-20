@@ -172,50 +172,135 @@
         </div>
     </div>
 
-    <div class="row g-3 text-center mt-4">
-        <div class="col-6 col-md-4 col-lg-2">
-            <a href="{{ route('apprentice.index') }}" class="text-decoration-none">
-                <div class="p-3 bg-white rounded-4 shadow-lg border border-success h-100 d-flex flex-column align-items-center justify-content-center">
-                    <i class="bi bi-people text-success fs-2 mb-2"></i>
-                    <span class="fw-bold text-dark small">Aprendices</span>
+    <div id="homeGuestContent" class="my-4">
+        <div class="card border border-dark shadow-sm rounded-4 p-4 bg-light">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <h5 class="fw-bold mb-1 text-dark">¿Eres Administrador o Instructor?</h5>
+                    <p class="mb-0 text-muted">Inicia sesión para gestionar las listas de aprendices y fichas de formación.</p>
                 </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-            <a href="{{ route('course.index') }}" class="text-decoration-none">
-                <div class="p-3 bg-white rounded-4 shadow-lg border border-primary h-100 d-flex flex-column align-items-center justify-content-center">
-                    <i class="bi bi-journal-bookmark text-primary fs-2 mb-2"></i>
-                    <span class="fw-bold text-dark small">Cursos</span>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-            <a href="{{ route('teacher.index') }}" class="text-decoration-none">
-                <div class="p-3 bg-white rounded-4 shadow-lg border border-warning h-100 d-flex flex-column align-items-center justify-content-center">
-                    <i class="bi bi-person-badge text-warning fs-2 mb-2"></i>
-                    <span class="fw-bold text-dark small">Instructores</span>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-            <a href="{{ route('about') }}" class="text-decoration-none">
-                <div class="p-3 bg-white rounded-4 shadow-lg border border-info h-100 d-flex flex-column align-items-center justify-content-center">
-                    <i class="bi bi-building text-info fs-2 mb-2"></i>
-                    <span class="fw-bold text-dark small">Nosotros</span>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-4">
-            <div class="p-3 bg-white rounded-4 shadow-lg border border-dark h-100 d-flex align-items-center justify-content-between px-4">
-                <div class="text-start">
-                    <h6 class="fw-bold text-dark mb-0">¿Necesitas ayuda?</h6>
-                    <small class="text-muted">Consulta la Misión SENA</small>
-                </div>
-                <a href="{{ route('about') }}" class="btn btn-sm btn-outline-success fw-bold rounded-3">
-                    Saber más
+                <a href="{{ route('login') }}" class="btn text-white fw-bold px-4 py-2 rounded-3" style="background-color: #39A900;">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión
                 </a>
             </div>
         </div>
     </div>
+
+    <div id="homeAdminContent" class="d-none my-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mt-4">
+            <h2 class="fw-bold text-dark mb-0">Acceso directo</h2>
+        </div>
+
+        <div class="row g-3 text-center mt-4">
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ route('apprentice.index') }}" class="text-decoration-none">
+                    <div class="p-3 bg-white rounded-4 shadow-lg border border-success h-100 d-flex flex-column align-items-center justify-content-center">
+                        <i class="bi bi-people text-success fs-2 mb-2"></i>
+                        <span class="fw-bold text-dark small">Aprendices</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ route('course.index') }}" class="text-decoration-none">
+                    <div class="p-3 bg-white rounded-4 shadow-lg border border-primary h-100 d-flex flex-column align-items-center justify-content-center">
+                        <i class="bi bi-journal-bookmark text-primary fs-2 mb-2"></i>
+                        <span class="fw-bold text-dark small">Cursos</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ route('teacher.index') }}" class="text-decoration-none">
+                    <div class="p-3 bg-white rounded-4 shadow-lg border border-warning h-100 d-flex flex-column align-items-center justify-content-center">
+                        <i class="bi bi-person-badge text-warning fs-2 mb-2"></i>
+                        <span class="fw-bold text-dark small">Instructores</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ route('about') }}" class="text-decoration-none">
+                    <div class="p-3 bg-white rounded-4 shadow-lg border border-info h-100 d-flex flex-column align-items-center justify-content-center">
+                        <i class="bi bi-building text-info fs-2 mb-2"></i>
+                        <span class="fw-bold text-dark small">Nosotros</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+                <div class="p-3 bg-white rounded-4 shadow-lg border border-dark h-100 d-flex align-items-center justify-content-between px-4">
+                    <div class="text-start">
+                        <h6 class="fw-bold text-dark mb-0">¿Necesitas ayuda?</h6>
+                        <small class="text-muted">Consulta la Misión SENA</small>
+                    </div>
+                    <a href="{{ route('about') }}" class="btn btn-sm btn-outline-success fw-bold rounded-3">
+                        Saber más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- BOTÓN FLOTANTE VOLVER ARRIBA -->
+<button id="btnScrollToTop" 
+        class="btn text-white shadow-lg rounded-circle border-0 d-flex align-items-center justify-content-center" 
+        onclick="scrollToTop()" 
+        title="Volver al principio"
+        style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #39A900; z-index: 1050; opacity: 0; pointer-events: none; transition: all 0.3s ease-in-out;">
+    <i class="bi bi-arrow-up-short fs-2"></i>
+</button>
+
+<style>
+    /* Efecto de elevación al pasar el cursor */
+    #btnScrollToTop:hover {
+        background-color: #00324D !important;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+</style>
+
+<script>
+    // Controla la visibilidad del botón al hacer scroll
+    window.addEventListener('scroll', function() {
+        const btn = document.getElementById('btnScrollToTop');
+        if (window.scrollY > 300) {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        } else {
+            btn.style.opacity = '0';
+            btn.style.pointerEvents = 'none';
+        }
+    });
+
+    // Desplazamiento suave al inicio de la página
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        checkHomeAuth();
+    });
+
+    function checkHomeAuth() {
+        const userSession = localStorage.getItem('user_session');
+        const adminContent = document.getElementById('homeAdminContent');
+        const guestContent = document.getElementById('homeGuestContent');
+
+        if (userSession) {
+            // Muestra el contenido exclusivo para admins
+            if (adminContent) adminContent.classList.remove('d-none');
+            // Oculta la invitación a iniciar sesión
+            if (guestContent) guestContent.classList.add('d-none');
+        } else {
+            // Oculta el contenido exclusivo
+            if (adminContent) adminContent.classList.add('d-none');
+            // Muestra la invitación a iniciar sesión
+            if (guestContent) guestContent.classList.remove('d-none');
+        }
+    }
+</script>
+
 @endsection

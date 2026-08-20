@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
+<script>
+    if (!localStorage.getItem('user_session')) {
+        alert('Acceso denegado: Debes iniciar sesión para acceder al panel de administración.');
+        window.location.href = "{{ route('login') }}";
+    }
+</script>
+
 <div class="py-4">
     <div class="container">
         
