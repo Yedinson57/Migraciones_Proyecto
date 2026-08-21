@@ -9,14 +9,14 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: linear-gradient(rgba(0, 50, 77, 0.75), rgba(0, 0, 0, 0.85)), 
-                    url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        background: linear-gradient(rgba(208, 222, 226, 0.8), rgba(0, 0, 0, 0.85)), 
+                    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxLw-L18oaXvM8MuD9p3DLDX4BpsuXx3QRFmRwje9UZZHyA1aQym1Xa0_j&s=10') center/cover no-repeat;
         z-index: -1;
     }
 
     /* Centrado del formulario sobre el fondo */
     .login-wrapper {
-        min-height: calc(100vh - 100px);
+        min-height: calc(100vh - 80px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -27,9 +27,9 @@
 <div class="login-full-bg"></div>
 
 <!-- Contenido del Formulario -->
-<div class="container login-wrapper py-4">
+<div class="container login-wrapper py-5">
     <div class="row justify-content-center w-100">
-        <div class="col-sm-10 col-md-6 col-lg-4">
+        <div class="col-sm-10 col-md-8 col-lg-4">
             
             <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
                 
@@ -78,9 +78,18 @@
 
                 <!-- Pie de página de la tarjeta -->
                 <div class="card-footer bg-light border-0 py-3 text-center">
-                    <a href="{{ route('home') }}" class="text-decoration-none small text-muted">
-                        <i class="bi bi-arrow-left me-1"></i> Volver al Inicio
-                    </a>
+                    <div class="mb-2">
+                        <span class="small text-muted">¿No tienes una cuenta?</span>
+                        <a href="{{ route('register') }}" class="fw-bold text-decoration-none ms-1" style="color: #39A900;">
+                            Regístrate aquí
+                        </a>
+                    </div>
+
+                    <div class="border-top pt-2 mt-2">
+                        <a href="{{ route('home') }}" class="text-decoration-none small text-muted">
+                            <i class="bi bi-arrow-left me-1"></i> Volver al Inicio
+                        </a>
+                    </div>
                 </div>
 
             </div>

@@ -8,6 +8,10 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TrainingCenterController;
 
+use App\Http\Controllers\AnuncioController;
+use App\Http\Controllers\OfertaController;
+use App\Http\Controllers\EventoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +24,23 @@ use App\Http\Controllers\TrainingCenterController;
 */
 Route::get('/', function () { return view('home'); })->name('home');
 
+// Rutas de Anuncios
+Route::get('/anuncios', [AnuncioController::class, 'index'])->name('anuncios.index');
+Route::get('/anuncios/{id}', [AnuncioController::class, 'show'])->name('anuncios.show');
+
+// Rutas de Ofertas
+Route::get('/ofertas', [OfertaController::class, 'index'])->name('ofertas.index');
+Route::get('/ofertas/{id}', [OfertaController::class, 'show'])->name('ofertas.show');
+
+// Rutas de Eventos
+Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index');
+Route::get('/eventos/{id}', [EventoController::class, 'show'])->name('eventos.show');
+
 Route::get('/about', function () { return view('about'); })->name('about');
 
+/* Auth */
 Route::get('/login', function () {return view('auth.login');})->name('login');
+Route::get('/register', function () {return view('auth.register');})->name('register');
 
 Route::get('area/create',[AreaController::class,'create'])->name('area.create');
 Route::post('area/admin',[AreaController::class,'admin'])->name('area.admin');

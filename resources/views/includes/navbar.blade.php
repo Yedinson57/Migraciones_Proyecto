@@ -12,10 +12,6 @@
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-          
-          <li class="nav-item">
-            <a class="nav-link text-white px-2 active fw-semibold" aria-current="page" href="/">Inicio</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link text-white px-2 active fw-semibold" aria-current="page" href="/about">¿Quienes Somos?</a>
           </li>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid px-0 mb-5 rounded-3 overflow-hidden shadow-sm">
     <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         
@@ -8,6 +9,7 @@
             <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
 
         <div class="carousel-inner">
@@ -20,7 +22,7 @@
                 <div class="carousel-caption d-none d-md-block z-2 mt-4">
                     <h1 class="display-4 fw-bold text-uppercase" style="color: #39A900; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Admin SENA</h1>
                     <p class="fs-4 fw-medium text-white" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Bienvenido al Panel de Administración y Gestión de Procesos Académicos.</p>
-                    <a href="/area/create" class="btn btn-light fw-bold px-4 py-2 mt-2">Comenzar Registro</a>
+                    <a href="/login" class="btn btn-light fw-bold px-4 py-2 mt-2">Comenzar Registro</a>
                 </div>
             </div>
 
@@ -30,9 +32,9 @@
                     <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80" class="d-block w-100 h-100 object-fit-cover" alt="Formacion Profesional">
                 </div>
                 <div class="carousel-caption d-none d-md-block z-2 mt-4">
-                    <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Control de Instructores y Cursos</h1>
-                    <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Administra de forma ágil las áreas, ambientes tecnológicos y asignaciones.</p>
-                    <a href="/teacher/list" class="btn btn-success fw-bold px-4 py-2 mt-2" style="background-color: #39A900; border-color: #39A900;">Ver Instructores</a>
+                    <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Conoce Ofertas Educativas</h1>
+                    <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Explora las diversas ofertas educativas que tiene Sena disponibles.</p>
+                    <a href="/ofertas" class="btn btn-success fw-bold px-4 py-2 mt-2" style="background-color: #39A900; border-color: #39A900;">Ver Ofertas</a>
                 </div>
             </div>
 
@@ -42,9 +44,21 @@
                     <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" class="d-block w-100 h-100 object-fit-cover" alt="Gestion de Aprendices">
                 </div>
                 <div class="carousel-caption d-none d-md-block z-2 mt-4">
-                    <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Seguimiento de Aprendices</h1>
-                    <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Monitorea la base de datos de alumnos matriculados y sus equipos asignados.</p>
-                    <a href="/apprentice/list" class="btn btn-outline-light fw-bold px-4 py-2 mt-2">Consultar Listas</a>
+                    <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Seguimiento de Eventos</h1>
+                    <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Consulta los nuevos eventos que se encuentran disponibles.</p>
+                    <a href="/eventos" class="btn btn-outline-light fw-bold px-4 py-2 mt-2">Descubre mas</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="5000">
+                <div class="position-relative" style="height: 500px;">
+                    <div class="w-100 h-100 bg-dark opacity-50 position-absolute top-0 start-0 z-1"></div>
+                    <img src="https://www.las2orillas.co/wp-content/uploads/2023/08/Servicio-Nacional-de-Aprendizaje-SENA.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Gestion de Aprendices">
+                </div>
+                <div class="carousel-caption d-none d-md-block z-2 mt-4">
+                    <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Seguimiento de Anuncios</h1>
+                    <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Consulta en tiempo anuncios sobre la institución.</p>
+                    <a href="/anuncios" class="btn btn-outline-light fw-bold px-4 py-2 mt-2">Saber más</a>
                 </div>
             </div>
 
@@ -110,8 +124,8 @@
                         </ul>
                     </div>
                     <div class="card-footer bg-light border-0 px-4 py-3 text-end">
-                        <a href="{{ route('course.index') }}" class="btn btn-sm text-white fw-bold px-3 rounded-3" style="background-color: #39A900;">
-                            Ver Fichas <i class="bi bi-arrow-right ms-1"></i>
+                        <a href="{{ route('ofertas.index') }}" class="btn btn-sm text-white fw-bold px-3 rounded-3" style="background-color: #39A900;">
+                            Consultar ofertas <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
                 </div>
@@ -136,7 +150,7 @@
                         </ul>
                     </div>
                     <div class="card-footer bg-light border-0 px-4 py-3 text-end">
-                        <a href="{{ route('about') }}" class="btn btn-sm btn-outline-primary fw-bold px-3 rounded-3">
+                        <a href="{{ route('eventos.index') }}" class="btn btn-sm btn-outline-primary fw-bold px-3 rounded-3">
                             Más Detalles <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
@@ -147,7 +161,7 @@
                 <div class="card h-100 border-1 border-secundary shadow-lg rounded-4 overflow-hidden card-hover">
                     <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
                         <span class="badge bg-info-subtle text-info-emphasis border border-info fw-bold px-3 py-2 rounded-pill">
-                            <i class="bi bi-heart-pulse me-1"></i> Taller
+                            <i class="bi bi-megaphone-fill me-1"></i> Anuncios
                         </span>
                         <small class="text-muted"><i class="bi bi-calendar3 me-1"></i> 02 Sep 2026</small>
                     </div>
@@ -162,8 +176,8 @@
                         </ul>
                     </div>
                     <div class="card-footer bg-light border-0 px-4 py-3 text-end">
-                        <a href="{{ route('apprentice.index') }}" class="btn btn-sm btn-outline-dark fw-bold px-3 rounded-3">
-                            Ir a Aprendices <i class="bi bi-arrow-right ms-1"></i>
+                        <a href="{{ route('anuncios.index') }}" class="btn btn-sm btn-outline-dark fw-bold px-3 rounded-3">
+                            Conoce más <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
                 </div>
