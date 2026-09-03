@@ -23,4 +23,8 @@ class Training_center extends Model
         'name',
         'location'
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

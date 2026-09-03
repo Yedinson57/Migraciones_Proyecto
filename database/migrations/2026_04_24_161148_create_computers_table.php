@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('number');
             $table->String('brand');
+            $table->string('urlFoto')->nullable();
             $table->timestamps();
         });
     }

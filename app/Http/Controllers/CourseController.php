@@ -26,7 +26,18 @@ class CourseController extends Controller
     
     public function admin(Request $request){
 
-        return Course::create($request->all());
+        $course = Course::create($request->all());
+        
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlFoto");
+
+        $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+
+        $course->urlFoto = $nombreArchivo;
+        $course->save();
+
+        return redirect()->route('course.index');
 
     }
 

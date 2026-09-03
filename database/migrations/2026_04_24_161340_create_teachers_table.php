@@ -33,6 +33,8 @@ return new class extends Migration
                 ->on('training_centers')
                 ->onDelete('set null')
                 ->onUpdate('set null');
+
+            $table->string('urlFoto')->nullable();
                 
             $table->timestamps();
         });

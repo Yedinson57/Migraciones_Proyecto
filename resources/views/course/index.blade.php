@@ -34,6 +34,7 @@
                                 <th class="py-3">Día / Fecha</th>
                                 <th class="py-3">Área</th>
                                 <th class="py-3">Centro Formación</th>
+                                <th class="py-3" style="width: 15%">Imagen Representativa</th>
                                 <th class="text-center py-3" style="width: 30%">Acciones de Gestión</th>
                             </tr>
                         </thead>
@@ -54,6 +55,14 @@
                                             {{ $course->training_center?->name ?? 'No asignado' }}
                                         </span>
                                     </td>
+
+                                    <td><img
+                                        src="{{ asset('storage/images/' . $course->urlFoto) }}"
+                                        alt="Imagen del curso"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 5px;"
+                                    ></td>
                                     
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">

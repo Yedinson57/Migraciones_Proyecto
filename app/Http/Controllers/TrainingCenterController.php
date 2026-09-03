@@ -23,7 +23,18 @@ class TrainingCenterController extends Controller
 
     public function admin(Request $request){
 
-        return Training_center::create($request->all());
+        $trainingcenters = Training_center::create($request->all());
+        
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlFoto");
+
+        $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+
+        $trainingcenters->urlFoto = $nombreArchivo;
+        $trainingcenters->save();
+
+        return redirect()->route('trainingcenter.index');
 
     }
 

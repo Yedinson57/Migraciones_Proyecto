@@ -32,6 +32,7 @@
                                 <th class="ps-4 py-3" style="width: 15%">ID</th>
                                 <th class="py-3" style="width: 30%">Nombre del Centro</th>
                                 <th class="py-3" style="width: 25%">Ubicación / Sede</th>
+                                <th class="py-3" style="width: 15%">Imagen Representativa</th>
                                 <th class="text-center py-3" style="width: 30%">Acciones de Gestión</th>
                             </tr>
                         </thead>
@@ -44,6 +45,14 @@
                                     <td class="text-secondary">
                                         <i class="bi bi-geo-alt-fill text-danger me-1"></i> {{ $trainingcenter->location }}
                                     </td>
+
+                                    <td><img
+                                        src="{{ asset('storage/images/' . $trainingcenter->urlFoto) }}"
+                                        alt="Imagen del centro"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 5px;"
+                                    ></td>
                                     
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">

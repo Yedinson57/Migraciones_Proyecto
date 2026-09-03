@@ -35,6 +35,8 @@ return new class extends Migration
                 ->onDelete('set null')
                 ->onUpdate('set null');
 
+            $table->string('urlFoto')->nullable();
+
             $table->timestamps();
         });
     }

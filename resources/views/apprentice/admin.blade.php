@@ -75,6 +75,8 @@
                                 <label for="apprentice_computer_id" class="text-secondary">Computador Coasociado</label>
                             </div>
 
+                            <input type="file" name="urlFoto" class="form-control-file" accept="image/*"">
+
                             <div class="d-flex justify-content-between align-items-center mt-5">
                                 <a href="/" class="btn btn-outline-secondary px-4 py-2 fw-medium rounded-3">
                                     Cancelar

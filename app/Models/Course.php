@@ -35,4 +35,8 @@ class Course extends Model
         'area_id',
         'training_center_id',
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

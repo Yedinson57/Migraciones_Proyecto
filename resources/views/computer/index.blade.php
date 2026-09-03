@@ -32,6 +32,7 @@
                                 <th class="ps-4 py-3" style="width: 15%">ID</th>
                                 <th class="py-3" style="width: 25%">Número de Equipo</th>
                                 <th class="py-3" style="width: 25%">Marca</th>
+                                <th class="py-3" style="width: 15%">Imagen Representativa</th>
                                 <th class="text-center py-3" style="width: 35%">Acciones de Gestión</th>
                             </tr>
                         </thead>
@@ -46,6 +47,14 @@
                                             {{ $computer->brand }}
                                         </span>
                                     </td>
+
+                                    <td><img
+                                        src="{{ asset('storage/images/' . $computer->urlFoto) }}"
+                                        alt="Imagen del computador"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 5px;"
+                                    ></td>
                                     
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">

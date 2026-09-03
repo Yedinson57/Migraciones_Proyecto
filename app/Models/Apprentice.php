@@ -27,4 +27,8 @@ class Apprentice extends Model
         'course_id',
         'computer_id',
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

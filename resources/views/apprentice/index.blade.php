@@ -34,6 +34,7 @@
                                 <th class="py-3">Email / Celular</th>
                                 <th class="py-3">Ficha Curso</th>
                                 <th class="py-3">Computador</th>
+                                <th class="py-3" style="width: 15%">Imagen Representativa</th>
                                 <th class="text-center py-3" style="width: 25%">Acciones de Gestión</th>
                             </tr>
                         </thead>
@@ -57,6 +58,14 @@
                                             Equipo N° {{ $apprentice->computer?->number ?? 'Sin PC'}}
                                         </span>
                                     </td>
+
+                                    <td><img
+                                        src="{{ asset('storage/images/' . $apprentice->urlFoto) }}"
+                                        alt="Imagen del aprendiz"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 5px;"
+                                    ></td>
                                     
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">

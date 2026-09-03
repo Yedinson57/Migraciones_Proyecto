@@ -31,6 +31,7 @@
                             <tr>
                                 <th class="ps-4 py-3" style="width: 15%">Código ID</th>
                                 <th class="py-3" style="width: 50%">Nombre del Área</th>
+                                <th class="py-3" style="width: 25%">Imagen Representativa</th>
                                 <th class="text-center py-3" style="width: 35%">Acciones de Gestión</th>
                             </tr>
                         </thead>
@@ -40,6 +41,14 @@
                                 <tr>
                                     <td class="ps-4 fw-bold text-secondary">#{{ $area->id }}</td>
                                     <td class="fw-medium text-dark">{{ $area->name }}</td>
+
+                                    <td><img
+                                        src="{{ asset('storage/images/' . $area->urlFoto) }}"
+                                        alt="Imagen del area"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 5px;"
+                                    ></td>
                                     
                                     <td class="text-center">
                                     <div class="d-flex justify-content-center align-items-center gap-2">

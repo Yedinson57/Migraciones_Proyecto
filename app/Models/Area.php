@@ -22,4 +22,8 @@ class Area extends Model
     protected $fillable = [
         'name'
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

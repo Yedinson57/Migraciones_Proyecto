@@ -28,7 +28,18 @@ class TeacherController extends Controller
     
     public function admin(Request $request){
 
-        return Teacher::create($request->all());
+        $teacher = Teacher::create($request->all());
+        
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlFoto");
+
+        $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+
+        $teacher->urlFoto = $nombreArchivo;
+        $teacher->save();
+
+        return redirect()->route('teacher.index');
 
     }
 
