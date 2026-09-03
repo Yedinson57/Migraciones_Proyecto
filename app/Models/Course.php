@@ -14,7 +14,7 @@ class Course extends Model
         return $this->belongsTo('App\Models\Area');
     }
 
-    // Relacion uno a Uno
+    // Relacion uno a Muchos (inversa)
     public function training_center(){
         return $this->belongsTo('App\Models\Training_center');
     }
