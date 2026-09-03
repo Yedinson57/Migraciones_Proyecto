@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->String('name');
             $table->String('email');
-            $table->integer('cell_number');
+            $table->String('cell_number');
 
             //Llave foranea course
             $table->unsignedBigInteger('course_id')->nullable();
