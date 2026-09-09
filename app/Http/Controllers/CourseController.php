@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Area;
 use App\Models\Course;
 use App\Models\Training_center;
+use App\Models\Cohort;
+use App\Models\Environment;
 
 class CourseController extends Controller
 {
     public function create(){
 
-    $areas=Area::all();
-    $training_centers=Training_center::all();
-        return view('course.admin',compact('areas','training_centers'));
+        $training_centers=Training_center::all();
+        $cohorts=Cohort::all();
+        $environments=Environment::all();
+
+        return view('course.admin',compact('training_centers','cohorts','environments'));
     }
 
     public function index(){
@@ -51,10 +54,11 @@ class CourseController extends Controller
 
     public function edit(Course $course){
 
-        $areas = Area::all();
-        $trainingcenters = Training_center::all();
+        $trainingcenters=Training_center::all();
+        $cohorts=Cohort::all();
+        $environments=Environment::all();
 
-        return view('course.edit', compact('course','areas','trainingcenters'));
+        return view('course.edit', compact('course','trainingcenters','cohorts','environments'));
     }
 
     public function update(Request $request, Course $course){

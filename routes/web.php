@@ -7,6 +7,7 @@ use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TrainingCenterController;
+use App\Http\Controllers\ProgramController;
 
 use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\OfertaController;
@@ -90,4 +91,11 @@ Route::get('apprentice/{apprentice}/editar',[ApprenticeController::class,'edit']
 Route::put('apprentice/{apprentice}',[ApprenticeController::class,'update'])->name('apprentice.update');
 Route::delete('apprentice/{apprentice}',[ApprenticeController::class,'destroy'])->name('apprentice.destroy');
 
+Route::get('program/create',[ProgramController::class,'create'])->name('program.create');
+Route::post('program/admin',[ProgramController::class,'admin'])->name('program.admin');
+Route::get('program/list',[ProgramController::class,'index'])->name('program.index');
+Route::get('program/{id}',[ProgramController::class,'show'])->name('program.show');
+Route::get('program/{programs}/editar',[ProgramController::class,'edit'])->name('program.edit');
+Route::put('program/{programs}',[ProgramController::class,'update'])->name('program.update');
+Route::delete('program/{programs}',[ProgramController::class,'destroy'])->name('program.destroy');
 

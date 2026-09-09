@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Computer;
+use App\Models\Environment;
 
 class ComputerController extends Controller
 {
     public function create(){
 
-        return view('computer.create');
+        $environments=Environment::all();
+        return view('computer.admin',compact('environments'));
 
     }
 
@@ -48,7 +50,9 @@ class ComputerController extends Controller
 
     public function edit(Computer $computer){
 
-        return view('computer.edit', compact('computer'));
+        $environments=Environment::all();
+
+        return view('computer.edit', compact('computer','environments'));
     }
 
     public function update(Request $request, Computer $computer){

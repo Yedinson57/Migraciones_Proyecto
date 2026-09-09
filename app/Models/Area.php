@@ -15,8 +15,8 @@ class Area extends Model
     }
 
     // Relacion Uno a Muchos
-    public function courses(){
-        return $this->hasMany('App\Models\Course');
+    public function programs(){
+        return $this->hasMany('App\Models\Program');
     }
 
     protected $fillable = [

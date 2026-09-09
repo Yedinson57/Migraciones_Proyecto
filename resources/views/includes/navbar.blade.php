@@ -27,6 +27,11 @@
               <li><a class="dropdown-item py-2" href="/course/create">Curso</a></li>
               <li><a class="dropdown-item py-2" href="/teacher/create">Instructor</a></li>
               <li><a class="dropdown-item py-2" href="/apprentice/create">Aprendiz</a></li>
+              <li><a class="dropdown-item py-2" href="/program/create">Programa</a></li>
+              <li><a class="dropdown-item py-2" href="/offer/create">Oferta</a></li>
+              <li><a class="dropdown-item py-2" href="/cohort/create">Ficha</a></li>
+              <li><a class="dropdown-item py-2" href="/environment/create">Ambiente</a></li>
+              <li><a class="dropdown-item py-2" href="/advertisement/create">Anuncio</a></li>
             </ul>
           </li>
           

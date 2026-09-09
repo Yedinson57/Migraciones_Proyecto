@@ -11,19 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
-            $table->Integer('course_number');
-            $table->date('day');
-
-            //Llave foranea area
-            $table->unsignedBigInteger('area_id')->nullable();
-
-            $table->foreign('area_id')
-                ->references('id')
-                ->on('areas')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+            $table->string('title');
+            $table->string('category');
+            $table->date('publish_date');
+            $table->string('author');
+            $table->string('summary');
+            $table->string('content');
 
             //Llave foranea training_center
             $table->unsignedBigInteger('training_center_id')->nullable();
@@ -34,8 +29,6 @@ return new class extends Migration
                 ->onDelete('set null')
                 ->onUpdate('set null');
 
-            $table->string('urlFoto')->nullable();
-
             $table->timestamps();
         });
     }
@@ -45,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('advertisements');
     }
 };

@@ -19,6 +19,16 @@ class Training_center extends Model
         return $this->hasMany('App\Models\Course');
     }
 
+    // Relacion uno a Muchos
+    public function environments(){
+        return $this->hasMany('App\Models\Environment');
+    }
+
+    // Relacion Uno a Muchos
+    public function advertisements(){
+        return $this->hasMany('App\Models\Advertisement');
+    }
+
     protected $fillable = [
         'name',
         'location'

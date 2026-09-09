@@ -16,6 +16,16 @@ return new class extends Migration
             $table->integer('number');
             $table->String('brand');
             $table->string('urlFoto')->nullable();
+
+            //Llave foranea environment
+            $table->unsignedBigInteger('environment_id')->nullable();
+
+            $table->foreign('environment_id')
+                ->references('id')
+                ->on('environments')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
             $table->timestamps();
         });
     }
