@@ -68,6 +68,19 @@
                                 </select>
                             </div>
 
+                            {{-- Vista previa de imagen actual (si existe) --}}
+                            @if($teacher->urlFoto)
+                            <div class="mb-3 text-center">
+                                <span class="d-block text-secondary small fw-bold mb-2">Fotografía Actual</span>
+                                <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                    <img src="{{ asset('storage/images/' . $teacher->urlFoto) }}"
+                                        alt="Foto {{ $teacher->name }}"
+                                        class="rounded-3 img-fluid"
+                                        style="max-height: 180px; object-fit: cover;">
+                                </div>
+                            </div>
+                            @endif
+
                             <hr class="my-4 opacity-25">
 
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-4">

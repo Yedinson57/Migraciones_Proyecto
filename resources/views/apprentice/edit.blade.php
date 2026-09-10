@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="course_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Ficha de Curso Vincular</label>
+                                <label for="course_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Curso Vinculado</label>
                                 <select name="course_id" id="course_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
                                     @foreach($courses as $course)
                                         <option value="{{ $course->id }}" {{ old('course_id', $apprentice->course_id) == $course->id ? 'selected' : '' }}>
@@ -77,6 +77,19 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            {{-- Vista previa de imagen actual (si existe) --}}
+                            @if($apprentice->urlFoto)
+                            <div class="mb-3 text-center">
+                                <span class="d-block text-secondary small fw-bold mb-2">Fotografía Actual</span>
+                                <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                    <img src="{{ asset('storage/images/' . $apprentice->urlFoto) }}"
+                                        alt="Foto {{ $apprentice->name }}"
+                                        class="rounded-3 img-fluid"
+                                        style="max-height: 180px; object-fit: cover;">
+                                </div>
+                            </div>
+                            @endif
 
                             <hr class="my-4 opacity-25">
 

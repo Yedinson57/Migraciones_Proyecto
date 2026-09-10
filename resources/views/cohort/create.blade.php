@@ -38,11 +38,11 @@
                             <div class="form-floating mb-4">
                                 <input type="date"
                                     class="form-control"
-                                    id="registration_date"
-                                    name="registration_date"
+                                    id="start_date"
+                                    name="start_date"
                                     placeholder="Fecha de inicio"
                                     required>
-                                <label for="registration_date" class="text-secondary">Fecha inicio</label>
+                                <label for="start_date" class="text-secondary">Fecha inicio</label>
                             </div>
 
                             <div class="form-floating mb-4">

@@ -19,6 +19,11 @@ class Environment extends Model
         return $this->hasMany('App\Models\Computer');
     }
 
+    // Relacion Uno a Muchos
+    public function courses(){
+        return $this->hasMany('App\Models\Course');
+    }
+
     protected $fillable = [
         'name',
         'location',

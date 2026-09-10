@@ -18,7 +18,7 @@
                     
                     <div class="card-header text-white text-center py-4" style="background-color: #39A900; border-bottom: none;">
                         <h4 class="mb-0 fw-bold">Detalle del Ambiente</h4>
-                        <p class="mb-0 mt-1 small opacity-75">{{ $advertisement['title'] }}</p>
+                        <p class="mb-0 mt-1 small opacity-75">{{ $advertisements['title'] }}</p>
                     </div>
                     
                     <div class="card-body p-4 p-md-5 bg-white">
@@ -26,49 +26,49 @@
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID de Ambiente</span>
                             <div class="p-3 bg-light rounded-3 fw-bold text-secondary border-start border-3 border-secondary">
-                                #{{ $advertisement['id'] }}
+                                #{{ $advertisements['id'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Titulo</span>
                             <div class="p-3 bg-light rounded-3 fw-medium text-dark">
-                                {{ $advertisement['title'] }}
+                                {{ $advertisements['title'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Categoria</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $advertisement['category'] }}
+                                {{ $advertisements['category'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Fecha de Publicación</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $advertisement['publish_date'] }}
+                                {{ $advertisements['publish_date'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Autor</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $advertisement['author'] }}
+                                {{ $advertisements['author'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Resumen</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $advertisement['summary'] }}
+                                {{ $advertisements['summary'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Contenido</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $advertisement['content'] }}
+                                {{ $advertisements['content'] }}
                             </div>
                         </div>
 
@@ -76,9 +76,26 @@
                             <div class="col-6">
                                 <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Centro</span>
                                 <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
-                                    {{ $advertisement['training_center_id'] }}
+                                    {{ $advertisements['training_center_id'] }}
                                 </div>
                             </div>
+                        </div>
+
+                        {{-- Visualización de la Imagen --}}
+                        <div class="mb-4">
+                            @if($advertisements->urlFoto)
+                            <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                <img src="{{ asset('storage/images/' . $advertisements->urlFoto) }}"
+                                    alt="Fotografía del Anuncio"
+                                    class="rounded-3 img-fluid"
+                                    style="max-height: 250px; width: 100%; object-fit: cover;">
+                            </div>
+                            @else
+                            <div class="p-4 border rounded-4 bg-light text-muted d-inline-block w-100" style="max-width: 300px;">
+                                <i class="bi bi-image fs-1 d-block mb-2 text-secondary"></i>
+                                <span class="fw-medium">Sin fotografía asignada</span>
+                            </div>
+                            @endif
                         </div>
 
                         <hr class="my-4 opacity-25">
@@ -87,13 +104,13 @@
                             <div class="col-sm-6">
                                 <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Fecha de registro</span>
                                 <div class="p-2 bg-light rounded-2 small text-secondary">
-                                    {{ \Carbon\Carbon::parse($advertisement['created_at'])->format('d/m/Y H:i') }}
+                                    {{ \Carbon\Carbon::parse($advertisements['created_at'])->format('d/m/Y H:i') }}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Última actualización</span>
                                 <div class="p-2 bg-light rounded-2 small text-secondary">
-                                    {{ \Carbon\Carbon::parse($advertisement['updated_at'])->format('d/m/Y H:i') }}
+                                    {{ \Carbon\Carbon::parse($advertisements['updated_at'])->format('d/m/Y H:i') }}
                                 </div>
                             </div>
                         </div>

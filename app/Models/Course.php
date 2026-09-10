@@ -29,6 +29,11 @@ class Course extends Model
         return $this->belongsTo('App\Models\Cohort');
     }
 
+    // Relacion uno a Muchos (inversa)
+    public function environment(){
+        return $this->belongsTo('App\Models\Environment');
+    }
+
     protected $fillable = [
         'course_number',
         'day',

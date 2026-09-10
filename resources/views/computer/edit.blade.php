@@ -52,12 +52,25 @@
                                 <label for="environment_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Área de Especialidad</label>
                                 <select name="environment_id" id="environment_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
                                     @foreach($environments as $environment)
-                                    <option value="{{ $environment->id }}" {{ old('environment_id', $programs->environment_id) == $environment->id ? 'selected' : '' }}>
+                                    <option value="{{ $environment->id }}" {{ old('environment_id', $computer->environment_id) == $environment->id ? 'selected' : '' }}>
                                         {{ $environment->name }}
                                     </option>
                                     @endforeach
                                 </select>
                             </div>
+
+                            {{-- Vista previa de imagen actual (si existe) --}}
+                            @if($computer->urlFoto)
+                            <div class="mb-3 text-center">
+                                <span class="d-block text-secondary small fw-bold mb-2">Fotografía Actual</span>
+                                <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                    <img src="{{ asset('storage/images/' . $computer->urlFoto) }}"
+                                        alt="Foto {{ $computer->number }}"
+                                        class="rounded-3 img-fluid"
+                                        style="max-height: 180px; object-fit: cover;">
+                                </div>
+                            </div>
+                            @endif
 
                             <hr class="my-4 opacity-25">
 

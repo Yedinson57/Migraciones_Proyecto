@@ -11,7 +11,7 @@ class ComputerController extends Controller
     public function create(){
 
         $environments=Environment::all();
-        return view('computer.admin',compact('environments'));
+        return view('computer.create',compact('environments'));
 
     }
 

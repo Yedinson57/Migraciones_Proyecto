@@ -10,7 +10,7 @@ class CohortController extends Controller
 {
     public function create(){
 
-    $offers=Offer::all();
+        $offers=Offer::all();
         return view('cohort.create',compact('offers'));
 
     }

@@ -49,13 +49,26 @@
                             <div class="mb-4">
                                 <label for="training_center_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Centro al que pertenece</label>
                                 <select name="training_center_id" id="training_center_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
-                                    @foreach($training_centers as $training_center)
-                                    <option value="{{ $training_center->id }}" {{ old('training_center_id', $environments->training_center_id) == $training_center->id ? 'selected' : '' }}>
-                                        {{ $training_center->name }}
+                                    @foreach($trainingcenters as $trainingcenter)
+                                    <option value="{{ $trainingcenter->id }}" {{ old('trainingcenter_id', $environments->trainingcenter_id) == $trainingcenter->id ? 'selected' : '' }}>
+                                        {{ $trainingcenter->name }}
                                     </option>
                                     @endforeach
                                 </select>
                             </div>
+
+                            {{-- Vista previa de imagen actual (si existe) --}}
+                            @if($environments->urlFoto)
+                            <div class="mb-3 text-center">
+                                <span class="d-block text-secondary small fw-bold mb-2">Fotografía Actual</span>
+                                <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                    <img src="{{ asset('storage/images/' . $environments->urlFoto) }}"
+                                        alt="Foto {{ $environments->name }}"
+                                        class="rounded-3 img-fluid"
+                                        style="max-height: 180px; object-fit: cover;">
+                                </div>
+                            </div>
+                            @endif
 
                             <hr class="my-4 opacity-25">
 

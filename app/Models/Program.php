@@ -23,6 +23,7 @@ class Program extends Model
         'name',
         'description',
         'type',
+        'modality',
         'duration',
         'area_id',
     ];

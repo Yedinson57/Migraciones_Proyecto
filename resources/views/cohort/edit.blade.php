@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="schedule" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Capacidad</label>
+                                <label for="schedule" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Cronograma</label>
                                 <input type="text"
                                     id="schedule"
                                     name="schedule"
@@ -61,7 +61,7 @@
                                 <select name="offer_id" id="offer_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
                                     @foreach($offers as $offer)
                                     <option value="{{ $offer->id }}" {{ old('offer_id', $cohorts->offer_id) == $offer->id ? 'selected' : '' }}>
-                                        {{ $offer->name }}
+                                        {{ $offer->registration_date }}
                                     </option>
                                     @endforeach
                                 </select>

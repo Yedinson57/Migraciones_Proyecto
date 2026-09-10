@@ -11,6 +11,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CohortController;
 use App\Http\Controllers\EnvironmentController;
+use App\Http\Controllers\AdvertisementController;
 
 use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\OfertaController;
@@ -125,3 +126,11 @@ Route::get('environment/{id}',[EnvironmentController::class,'show'])->name('envi
 Route::get('environment/{environments}/editar',[EnvironmentController::class,'edit'])->name('environment.edit');
 Route::put('environment/{environments}',[EnvironmentController::class,'update'])->name('environment.update');
 Route::delete('environment/{environments}',[EnvironmentController::class,'destroy'])->name('environment.destroy');
+
+Route::get('advertisement/create',[AdvertisementController::class,'create'])->name('advertisement.create');
+Route::post('advertisement/admin',[AdvertisementController::class,'admin'])->name('advertisement.admin');
+Route::get('advertisement/list',[AdvertisementController::class,'index'])->name('advertisement.index');
+Route::get('advertisement/{id}',[AdvertisementController::class,'show'])->name('advertisement.show');
+Route::get('advertisement/{advertisements}/editar',[AdvertisementController::class,'edit'])->name('advertisement.edit');
+Route::put('advertisement/{advertisements}',[AdvertisementController::class,'update'])->name('advertisement.update');
+Route::delete('advertisement/{advertisements}',[AdvertisementController::class,'destroy'])->name('advertisement.destroy');

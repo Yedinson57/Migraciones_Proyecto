@@ -45,10 +45,27 @@
                         </div>
 
                         <div class="col-6">
-                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Área</span>
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Ambiente</span>
                             <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
-                                {{ $course['environment_id'] }}
+                                {{ $computer['environment_id'] }}
                             </div>
+                        </div>
+
+                        {{-- Visualización de la Imagen --}}
+                        <div class="mb-4">
+                            @if($computer->urlFoto)
+                            <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                <img src="{{ asset('storage/images/' . $computer->urlFoto) }}"
+                                    alt="Fotografía del Computador"
+                                    class="rounded-3 img-fluid"
+                                    style="max-height: 250px; width: 100%; object-fit: cover;">
+                            </div>
+                            @else
+                            <div class="p-4 border rounded-4 bg-light text-muted d-inline-block w-100" style="max-width: 300px;">
+                                <i class="bi bi-image fs-1 d-block mb-2 text-secondary"></i>
+                                <span class="fw-medium">Sin fotografía asignada</span>
+                            </div>
+                            @endif
                         </div>
 
                         <hr class="my-4 opacity-25">

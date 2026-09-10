@@ -66,6 +66,23 @@
                             </div>
                         </div>
 
+                        {{-- Visualización de la Imagen --}}
+                        <div class="mb-4">
+                            @if($apprentice->urlFoto)
+                            <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                <img src="{{ asset('storage/images/' . $apprentice->urlFoto) }}"
+                                    alt="Fotografía del Aprendiz"
+                                    class="rounded-3 img-fluid"
+                                    style="max-height: 250px; width: 100%; object-fit: cover;">
+                            </div>
+                            @else
+                            <div class="p-4 border rounded-4 bg-light text-muted d-inline-block w-100" style="max-width: 300px;">
+                                <i class="bi bi-image fs-1 d-block mb-2 text-secondary"></i>
+                                <span class="fw-medium">Sin fotografía asignada</span>
+                            </div>
+                            @endif
+                        </div>
+
                         <hr class="my-4 opacity-25">
 
                         <div class="row g-3 mb-4">

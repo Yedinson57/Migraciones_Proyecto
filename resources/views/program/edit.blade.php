@@ -52,10 +52,10 @@
                                 </label>
 
                                 <select name="type" id="type" class="form-select">
-                                    <option value="">Seleccione el tipo</option>
-                                    <option value="Tecnologo" {{ old('type', $programs->type) == 'Tecnologo' ? 'selected' : '' }}>Tecnologo</option>
-                                    <option value="Tecnico" {{ old('type', $programs->type) == 'Tecnico' ? 'selected' : '' }}>Tecnico</option>
-                                    <option value="Especialización" {{ old('type', $programs->type) == 'Especializacion' ? 'selected' : '' }}>Especializacion</option>
+                                    <option value="" selected disabled>Seleccione el tipo</option>
+                                    <option value="Tecnólogo" {{ old('type', $programs->type) == 'Tecnólogo' ? 'selected' : '' }}>Tecnólogo</option>
+                                    <option value="Técnico" {{ old('type', $programs->type) == 'Técnico' ? 'selected' : '' }}>Técnico</option>
+                                    <option value="Especialización" {{ old('type', $programs->type) == 'Especialización' ? 'selected' : '' }}>Especialización</option>
                                     <option value="Curso" {{ old('type', $programs->type) == 'Curso' ? 'selected' : '' }}>Curso</option>
                                 </select>
                             </div>
@@ -66,7 +66,7 @@
                                 </label>
 
                                 <select name="modality" id="modality" class="form-select">
-                                    <option value="">Seleccione la modalidad</option>
+                                    <option value="" selected disabled>Seleccione la modalidad</option>
                                     <option value="Presencial" {{ old('modality', $programs->modality) == 'Presencial' ? 'selected' : '' }}>Presencial</option>
                                     <option value="Virtual" {{ old('modality', $programs->modality) == 'Virtual' ? 'selected' : '' }}>Virtual</option>
                                 </select>
@@ -92,6 +92,19 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            {{-- Vista previa de imagen actual (si existe) --}}
+                            @if($programs->urlFoto)
+                            <div class="mb-3 text-center">
+                                <span class="d-block text-secondary small fw-bold mb-2">Fotografía Actual</span>
+                                <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                    <img src="{{ asset('storage/images/' . $programs->urlFoto) }}"
+                                        alt="Foto {{ $programs->name }}"
+                                        class="rounded-3 img-fluid"
+                                        style="max-height: 180px; object-fit: cover;">
+                                </div>
+                            </div>
+                            @endif
 
                             <hr class="my-4 opacity-25">
 

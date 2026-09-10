@@ -65,7 +65,25 @@
                                 <label for="teacher_center_id" class="text-secondary">Centro de Formación Asignado</label>
                             </div>
 
-                            <input type="file" name="urlFoto" class="form-control-file" accept="image/*"">
+                            <div class="mb-4">
+                                <label for="urlFoto" class="form-label fw-bold text-secondary mb-1">Fotografía del Instructor</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light text-secondary border-end-0 rounded-start-3">
+                                        <i class="bi bi-image"></i>
+                                    </span>
+                                    <input type="file"
+                                        name="urlFoto"
+                                        id="urlFoto"
+                                        class="form-control border-start-0 rounded-end-3 focus-ring @error('urlFoto') is-invalid @enderror"
+                                        accept="image/*">
+                                    @error('urlFoto')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="text-muted small mt-1 ps-1">
+                                    Formatos permitidos: JPG, PNG, WEBP.
+                                </div>
+                            </div>
 
                             <div class="d-flex justify-content-between align-items-center mt-5">
                                 <a href="/" class="btn btn-outline-secondary px-4 py-2 fw-medium rounded-3">

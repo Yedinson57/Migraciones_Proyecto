@@ -13,16 +13,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                
+
                 <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
-                    
+
                     <div class="card-header text-white text-center py-4" style="background-color: #39A900; border-bottom: none;">
                         <h4 class="mb-0 fw-bold">Información del Área</h4>
                         <p class="mb-0 mt-1 small opacity-75">{{ $area['name'] }}</p>
                     </div>
-                    
+
                     <div class="card-body p-4 p-md-5 bg-white">
-                        
+
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Código ID</span>
                             <div class="p-3 bg-light rounded-3 fw-bold text-secondary border-start border-3 border-secondary">
@@ -35,6 +35,23 @@
                             <div class="p-3 bg-light rounded-3 fw-medium text-dark">
                                 {{ $area['name'] }}
                             </div>
+                        </div>
+
+                        {{-- Visualización de la Imagen --}}
+                        <div class="mb-4">
+                            @if($area->urlFoto)
+                            <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                <img src="{{ asset('storage/images/' . $area->urlFoto) }}"
+                                    alt="Fotografía del área"
+                                    class="rounded-3 img-fluid"
+                                    style="max-height: 250px; width: 100%; object-fit: cover;">
+                            </div>
+                            @else
+                            <div class="p-4 border rounded-4 bg-light text-muted d-inline-block w-100" style="max-width: 300px;">
+                                <i class="bi bi-image fs-1 d-block mb-2 text-secondary"></i>
+                                <span class="fw-medium">Sin fotografía asignada</span>
+                            </div>
+                            @endif
                         </div>
 
                         <hr class="my-4 opacity-25">
@@ -62,7 +79,7 @@
 
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

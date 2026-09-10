@@ -48,7 +48,7 @@
 
                             <div class="mb-4">
                                 <label for="capacity" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Capacidad</label>
-                                <input type="text"
+                                <input type="number"
                                     id="capacity"
                                     name="capacity"
                                     class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
@@ -66,6 +66,19 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            {{-- Vista previa de imagen actual (si existe) --}}
+                            @if($offers->urlFoto)
+                            <div class="mb-3 text-center">
+                                <span class="d-block text-secondary small fw-bold mb-2">Fotografía Actual</span>
+                                <div class="d-inline-block p-2 border rounded-4 bg-light shadow-sm">
+                                    <img src="{{ asset('storage/images/' . $offers->urlFoto) }}"
+                                        alt="Foto {{ $offers->name }}"
+                                        class="rounded-3 img-fluid"
+                                        style="max-height: 180px; object-fit: cover;">
+                                </div>
+                            </div>
+                            @endif
 
                             <hr class="my-4 opacity-25">
 
