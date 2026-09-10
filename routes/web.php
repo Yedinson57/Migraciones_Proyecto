@@ -8,6 +8,9 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TrainingCenterController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\CohortController;
+use App\Http\Controllers\EnvironmentController;
 
 use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\OfertaController;
@@ -99,3 +102,26 @@ Route::get('program/{programs}/editar',[ProgramController::class,'edit'])->name(
 Route::put('program/{programs}',[ProgramController::class,'update'])->name('program.update');
 Route::delete('program/{programs}',[ProgramController::class,'destroy'])->name('program.destroy');
 
+Route::get('offer/create',[OfferController::class,'create'])->name('offer.create');
+Route::post('offer/admin',[OfferController::class,'admin'])->name('offer.admin');
+Route::get('offer/list',[OfferController::class,'index'])->name('offer.index');
+Route::get('offer/{id}',[OfferController::class,'show'])->name('offer.show');
+Route::get('offer/{offers}/editar',[OfferController::class,'edit'])->name('offer.edit');
+Route::put('offer/{offers}',[OfferController::class,'update'])->name('offer.update');
+Route::delete('offer/{offers}',[OfferController::class,'destroy'])->name('offer.destroy');
+
+Route::get('cohort/create',[CohortController::class,'create'])->name('cohort.create');
+Route::post('cohort/admin',[CohortController::class,'admin'])->name('cohort.admin');
+Route::get('cohort/list',[CohortController::class,'index'])->name('cohort.index');
+Route::get('cohort/{id}',[CohortController::class,'show'])->name('cohort.show');
+Route::get('cohort/{cohorts}/editar',[CohortController::class,'edit'])->name('cohort.edit');
+Route::put('cohort/{cohorts}',[CohortController::class,'update'])->name('cohort.update');
+Route::delete('cohort/{cohorts}',[CohortController::class,'destroy'])->name('cohort.destroy');
+
+Route::get('environment/create',[EnvironmentController::class,'create'])->name('environment.create');
+Route::post('environment/admin',[EnvironmentController::class,'admin'])->name('environment.admin');
+Route::get('environment/list',[EnvironmentController::class,'index'])->name('environment.index');
+Route::get('environment/{id}',[EnvironmentController::class,'show'])->name('environment.show');
+Route::get('environment/{environments}/editar',[EnvironmentController::class,'edit'])->name('environment.edit');
+Route::put('environment/{environments}',[EnvironmentController::class,'update'])->name('environment.update');
+Route::delete('environment/{environments}',[EnvironmentController::class,'destroy'])->name('environment.destroy');

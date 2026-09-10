@@ -10,14 +10,14 @@ class OfferController extends Controller
 {
     public function create(){
 
-    $programs=Program::all();
+        $programs=Program::all();
         return view('offer.create',compact('programs'));
 
     }
 
     public function index(){
 
-        $offers = offer::all();
+        $offers = Offer::all();
 
         return view('offer.index', compact('offers'));
 
@@ -26,7 +26,7 @@ class OfferController extends Controller
     
     public function admin(Request $request){
 
-        offer::create($request->all());
+        Offer::create($request->all());
 
         return redirect()->route('offer.index');
 
@@ -34,7 +34,7 @@ class OfferController extends Controller
 
     public function show ($id){
 
-        $offers=offer::find($id);
+        $offers=Offer::find($id);
 
         return view('offer.show',compact('offers'));
         
