@@ -47,6 +47,11 @@
                                             {{ $computer->brand }}
                                         </span>
                                     </td>
+                                    <td>
+                                        <span class="badge bg-secondary-subtle text-secondary border px-2 py-1 rounded">
+                                            {{ $course->environment?->name ?? 'No asignada'  }}
+                                        </span>
+                                    </td>
 
                                     <td><img
                                         src="{{ asset('storage/images/' . $computer->urlFoto) }}"

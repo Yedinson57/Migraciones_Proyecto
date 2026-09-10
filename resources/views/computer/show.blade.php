@@ -13,16 +13,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                
+
                 <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
-                    
+
                     <div class="card-header text-white text-center py-4" style="background-color: #39A900; border-bottom: none;">
                         <h4 class="mb-0 fw-bold">Detalle del Equipo</h4>
                         <p class="mb-0 mt-1 small opacity-75">Equipo N° {{ $computer['number'] }}</p>
                     </div>
-                    
+
                     <div class="card-body p-4 p-md-5 bg-white">
-                        
+
                         <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID de Sistema</span>
                             <div class="p-3 bg-light rounded-3 fw-bold text-secondary border-start border-3 border-secondary">
@@ -41,6 +41,13 @@
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Fabricante / Marca</span>
                             <div class="p-3 bg-light rounded-3 fw-medium text-dark">
                                 {{ $computer['brand'] }}
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Área</span>
+                            <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
+                                {{ $course['environment_id'] }}
                             </div>
                         </div>
 
@@ -69,7 +76,7 @@
 
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

@@ -26,4 +26,8 @@ class Program extends Model
         'duration',
         'area_id',
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

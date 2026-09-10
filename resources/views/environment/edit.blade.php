@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="training_center_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Área de Especialidad</label>
+                                <label for="training_center_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Centro al que pertenece</label>
                                 <select name="training_center_id" id="training_center_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
                                     @foreach($training_centers as $training_center)
                                     <option value="{{ $training_center->id }}" {{ old('training_center_id', $environments->training_center_id) == $training_center->id ? 'selected' : '' }}>

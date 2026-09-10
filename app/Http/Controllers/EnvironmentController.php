@@ -26,7 +26,7 @@ class EnvironmentController extends Controller
     
     public function admin(Request $request){
 
-        $environment = Environment::create($request->all());
+        $environments = Environment::create($request->all());
         
         //ADJUNTAR EL PDF
         $file=$request->file("urlFoto");
@@ -34,8 +34,8 @@ class EnvironmentController extends Controller
         $nombreArchivo = "foto_".time().".".$file->guessExtension();
         $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
 
-        $environment->urlFoto = $nombreArchivo;
-        $environment->save();
+        $environments->urlFoto = $nombreArchivo;
+        $environments->save();
 
         return redirect()->route('environment.index');
 

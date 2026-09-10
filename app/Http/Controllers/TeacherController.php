@@ -11,9 +11,10 @@ class TeacherController extends Controller
 {
     public function create(){
 
-    $areas=Area::all();
-    $training_centers=Training_center::all();
-        return view('teacher.admin',compact('areas','training_centers'));
+        $areas=Area::all();
+        $training_centers=Training_center::all();
+        
+        return view('teacher.create',compact('areas','training_centers'));
 
     }
 

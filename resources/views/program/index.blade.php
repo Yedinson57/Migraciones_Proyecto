@@ -33,6 +33,7 @@
                                 <th class="py-3">Nombre</th>
                                 <th class="py-3" style="width:10%">Descripción</th>
                                 <th class="py-3">Tipo</th>
+                                <th class="py-3">Modalidad</th>
                                 <th class="py-3">Duración</th>
                                 <th class="py-3">Area</th>
                                 <th class="text-center py-3" style="width: 30%">Acciones de Gestión</th>
@@ -46,12 +47,20 @@
                                     <td class="fw-bold text-dark">{{ $program->name }}</td>
                                     <td class="text-secondary small">{{ $program->description }}</td>
                                     <td class="text-secondary small">{{ $program->type }}</td>
+                                    <td class="text-secondary small">{{ $program->modality }}</td>
                                     <td class="text-secondary small">{{ $program->duration }}</td>
                                     <td>
                                         <span class="badge bg-secondary-subtle text-secondary border px-2 py-1 rounded">
                                             {{ $program->area?->name ?? 'No asignada' }}
                                         </span>
                                     </td>
+                                    <td><img
+                                        src="{{ asset('storage/images/' . $course->urlFoto) }}"
+                                        alt="Imagen del curso"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 5px;"
+                                    ></td>
 
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">

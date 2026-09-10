@@ -48,6 +48,17 @@
                                     required>
                             </div>
 
+                            <div class="mb-4">
+                                <label for="environment_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Área de Especialidad</label>
+                                <select name="environment_id" id="environment_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
+                                    @foreach($environments as $environment)
+                                    <option value="{{ $environment->id }}" {{ old('environment_id', $programs->environment_id) == $environment->id ? 'selected' : '' }}>
+                                        {{ $environment->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <hr class="my-4 opacity-25">
 
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-4">

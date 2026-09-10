@@ -26,8 +26,17 @@ class AdvertisementController extends Controller
     
     public function admin(Request $request){
 
-        Advertisement::create($request->all());
+        $advertisements = Advertisement::create($request->all());
         
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlFoto");
+
+        $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+
+        $advertisements->urlFoto = $nombreArchivo;
+        $advertisements->save();
+
         return redirect()->route('advertisement.index');
 
     }

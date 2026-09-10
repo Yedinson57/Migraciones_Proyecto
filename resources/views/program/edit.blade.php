@@ -60,6 +60,18 @@
                                 </select>
                             </div>
 
+                            <div class="mb-3">
+                                <label for="type" class="form-label fw-bold">
+                                    Modalidad
+                                </label>
+
+                                <select name="modality" id="modality" class="form-select">
+                                    <option value="">Seleccione la modalidad</option>
+                                    <option value="Presencial" {{ old('modality', $programs->modality) == 'Presencial' ? 'selected' : '' }}>Presencial</option>
+                                    <option value="Virtual" {{ old('modality', $programs->modality) == 'Virtual' ? 'selected' : '' }}>Virtual</option>
+                                </select>
+                            </div>
+
                             <div class="mb-4">
                                 <label for="duration" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Duración</label>
                                 <input type="text"

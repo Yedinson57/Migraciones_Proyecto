@@ -46,15 +46,23 @@
 
                         <div class="row g-3 mb-4">
                             <div class="col-6">
-                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Área</span>
-                                <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
-                                    {{ $course['area_id'] }}
-                                </div>
-                            </div>
-                            <div class="col-6">
                                 <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Centro</span>
                                 <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
                                     {{ $course['training_center_id'] }}
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Centro</span>
+                                <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
+                                    {{ $course['cohort_id'] }}
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Área</span>
+                                <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
+                                    {{ $course['environment_id'] }}
                                 </div>
                             </div>
                         </div>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('type');
+            $table->string('modality');
             $table->string('duration');
 
             //Llave foranea area
@@ -26,6 +27,8 @@ return new class extends Migration
                 ->on('areas')
                 ->onDelete('set null')
                 ->onUpdate('set null');
+
+            $table->string('urlFoto')->nullable();
 
             $table->timestamps();
         });

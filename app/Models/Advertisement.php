@@ -23,4 +23,8 @@ class Advertisement extends Model
         'content',
         'training_center_id'
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

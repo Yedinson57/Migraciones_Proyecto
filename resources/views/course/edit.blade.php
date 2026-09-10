@@ -47,22 +47,33 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="area_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Área Vinculada</label>
-                                <select name="area_id" id="area_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
-                                    @foreach($areas as $area)
-                                        <option value="{{ $area->id }}" {{ old('area_id', $course->area_id) == $area->id ? 'selected' : '' }}>
-                                            {{ $area->name }}
+                                <label for="training_center_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Centro de Formación Sede</label>
+                                <select name="training_center_id" id="trainingcenter_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
+                                    @foreach($trainingcenters as $trainingcenter)
+                                        <option value="{{ $trainingcenter->id }}" {{ old('training_center_id', $course->training_center_id) == $trainingcenter->id ? 'selected' : '' }}>
+                                            {{ $trainingcenter->name }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="mb-4">
-                                <label for="training_center_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Centro de Formación Sede</label>
-                                <select name="training_center_id" id="trainingcenter_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
-                                    @foreach($trainingcenters as $trainingcenter)
-                                        <option value="{{ $trainingcenter->id }}" {{ old('training_center_id', $course->training_center_id) == $trainingcenter->id ? 'selected' : '' }}>
-                                            {{ $trainingcenter->name }}
+                                <label for="cohort_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Área Vinculada</label>
+                                <select name="cohort_id" id="cohort_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
+                                    @foreach($cohorts as $cohort)
+                                        <option value="{{ $cohort->id }}" {{ old('cohort_id', $course->cohort_id) == $cohort->id ? 'selected' : '' }}>
+                                            {{ $cohort->code }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="environment_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Área Vinculada</label>
+                                <select name="environment_id" id="environment_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
+                                    @foreach($environments as $environment)
+                                        <option value="{{ $environment->id }}" {{ old('environment_id', $course->environment_id) == $environment->id ? 'selected' : '' }}>
+                                            {{ $environment->name }}
                                         </option>
                                     @endforeach
                                 </select>

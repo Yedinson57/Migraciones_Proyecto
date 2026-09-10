@@ -26,8 +26,17 @@ class ProgramController extends Controller
     
     public function admin(Request $request){
 
-        Program::create($request->all());
+        $programs = Program::create($request->all());
         
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlFoto");
+
+        $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+
+        $programs->urlFoto = $nombreArchivo;
+        $programs->save();
+
         return redirect()->route('program.index');
 
     }

@@ -52,6 +52,13 @@
                         </div>
 
                         <div class="mb-4">
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Tipo del programa</span>
+                            <div class="p-3 bg-light rounded-3 text-dark">
+                                {{ $programs['modality'] }}
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
                             <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Duración</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
                                 {{ $programs['duration'] }}

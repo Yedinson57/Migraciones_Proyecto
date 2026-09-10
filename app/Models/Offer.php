@@ -25,4 +25,8 @@ class Offer extends Model
         'capacity',
         'program_id',
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

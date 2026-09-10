@@ -16,7 +16,7 @@ class CourseController extends Controller
         $cohorts=Cohort::all();
         $environments=Environment::all();
 
-        return view('course.admin',compact('training_centers','cohorts','environments'));
+        return view('course.create',compact('training_centers','cohorts','environments'));
     }
 
     public function index(){

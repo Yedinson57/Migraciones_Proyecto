@@ -50,6 +50,13 @@
                                             {{ $offer->program?->name ?? 'No asignada' }}
                                         </span>
                                     </td>
+                                    <td><img
+                                        src="{{ asset('storage/images/' . $course->urlFoto) }}"
+                                        alt="Imagen del curso"
+                                        width="80"
+                                        height="80"
+                                        style="object-fit: cover; border-radius: 5px;"
+                                    ></td>
 
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">

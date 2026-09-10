@@ -17,65 +17,81 @@
                 <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
 
                     <div class="card-header text-white text-center py-4" style="background-color: #39A900; border-bottom: none;">
-                        <h4 class="mb-0 fw-bold">Actualizar Programa</h4>
-                        <p class="mb-0 mt-1 small opacity-75">Modifique la vinculación y credenciales del programa</p>
+                        <h4 class="mb-0 fw-bold">Actualizar Ambiente</h4>
+                        <p class="mb-0 mt-1 small opacity-75">Modifique la vinculación y credenciales del Ambiente</p>
                     </div>
 
                     <div class="card-body p-4 p-md-5 bg-white">
-                        <form action="{{ route('program.update', $programs) }}" method="POST">
+                        <form action="{{ route('environment.update', $environments) }}" method="POST">
                             @csrf
                             @method('put')
 
                             <div class="mb-4">
-                                <label for="name" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Nombre</label>
+                                <label for="title" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Titulo</label>
                                 <input type="text"
-                                    id="name"
-                                    name="name"
+                                    id="title"
+                                    name="title"
                                     class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
-                                    value="{{ old('name', $programs->name) }}"
+                                    value="{{ old('title', $environments->title) }}"
                                     required>
                             </div>
 
                             <div class="mb-4">
-                                <label for="description" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Descripcion</label>
+                                <label for="category" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Descripcion</label>
                                 <input type="text"
-                                    id="description"
-                                    name="description"
+                                    id="category"
+                                    name="category"
                                     class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
-                                    value="{{ old('description', $programs->description) }}"
-                                    required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="type" class="form-label fw-bold">
-                                    Tipo de Programa
-                                </label>
-
-                                <select name="type" id="type" class="form-select">
-                                    <option value="">Seleccione el tipo</option>
-                                    <option value="Tecnologo" {{ old('type', $programs->type) == 'Tecnologo' ? 'selected' : '' }}>Tecnologo</option>
-                                    <option value="Tecnico" {{ old('type', $programs->type) == 'Tecnico' ? 'selected' : '' }}>Tecnico</option>
-                                    <option value="Especialización" {{ old('type', $programs->type) == 'Especializacion' ? 'selected' : '' }}>Especializacion</option>
-                                    <option value="Curso" {{ old('type', $programs->type) == 'Curso' ? 'selected' : '' }}>Curso</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="duration" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Duración</label>
-                                <input type="text"
-                                    id="duration"
-                                    name="duration"
-                                    class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
-                                    value="{{ old('duration', $programs->duration) }}"
+                                    value="{{ old('category', $environments->category) }}"
                                     required>
                             </div>
 
                             <div class="mb-4">
-                                <label for="area_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Área de Especialidad</label>
-                                <select name="area_id" id="area_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
-                                    @foreach($areas as $area)
-                                    <option value="{{ $area->id }}" {{ old('area_id', $programs->area_id) == $area->id ? 'selected' : '' }}>
-                                        {{ $area->name }}
+                                <label for="publish_date" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Duración</label>
+                                <input type="date"
+                                    id="publish_date"
+                                    name="publish_date"
+                                    class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
+                                    value="{{ old('publish_date', $environments->publish_date) }}"
+                                    required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="author" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Descripcion</label>
+                                <input type="text"
+                                    id="author"
+                                    name="author"
+                                    class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
+                                    value="{{ old('author', $environments->author) }}"
+                                    required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="summary" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Descripcion</label>
+                                <input type="text"
+                                    id="summary"
+                                    name="summary"
+                                    class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
+                                    value="{{ old('summary', $environments->summary) }}"
+                                    required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="content" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Descripcion</label>
+                                <input type="text"
+                                    id="content"
+                                    name="content"
+                                    class="form-control form-control-lg bg-light border-0 rounded-3 text-dark fw-medium"
+                                    value="{{ old('content', $environments->content) }}"
+                                    required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="training_center_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Centro al que pertenece</label>
+                                <select name="training_center_id" id="training_center_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
+                                    @foreach($training_centers as $training_center)
+                                    <option value="{{ $training_center->id }}" {{ old('training_center_id', $environments->training_center_id) == $training_center->id ? 'selected' : '' }}>
+                                        {{ $training_center->name }}
                                     </option>
                                     @endforeach
                                 </select>
@@ -88,7 +104,7 @@
                                     Cancelar
                                 </a>
                                 <button type="submit" class="btn text-white fw-bold px-4 py-2 rounded-3 shadow-sm" style="background-color: #39A900;">
-                                    Actualizar Programa
+                                    Actualizar Ambiente
                                 </button>
                             </div>
                         </form>

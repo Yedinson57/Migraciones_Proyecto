@@ -45,6 +45,16 @@
                                 <label for="brand" class="text-secondary">Marca (Ej. HP, Dell, Lenovo)</label>
                             </div>
 
+                            <div class="form-floating mb-4">
+                                <select name="environment_id" id="computer_environment_id" class="form-select" required>
+                                    <option value="" selected disabled>Seleccione una opción...</option>
+                                    @foreach ($environments as $environment)
+                                        <option value="{{ $environment->id }}">{{ $environment->name }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="computer_environment_id" class="text-secondary">Ambiente Asociado</label>
+                            </div>
+
                             <input type="file" name="urlFoto" class="form-control-file" accept="image/*"">
 
                             <div class="d-flex justify-content-between align-items-center mt-5">

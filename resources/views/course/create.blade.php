@@ -32,7 +32,7 @@
                                     name="course_number" 
                                     placeholder="Número de curso" 
                                     required>
-                                <label for="course_number" class="text-secondary">Número de Ficha o Curso</label>
+                                <label for="course_number" class="text-secondary">Número de curso</label>
                             </div>
                             
                             <div class="form-floating mb-4">
@@ -46,16 +46,6 @@
                             </div>
 
                             <div class="form-floating mb-4">
-                                <select name="area_id" id="area_id" class="form-select" required>
-                                    <option value="" selected disabled>Seleccione una opción...</option>
-                                    @foreach ($areas as $area)
-                                        <option value="{{ $area->id }}">{{ $area->name }}</option>
-                                    @endforeach
-                                </select>
-                                <label for="area_id" class="text-secondary">Área Asociada</label>
-                            </div>
-                            
-                            <div class="form-floating mb-4">
                                 <select name="training_center_id" id="training_center_id" class="form-select" required>
                                     <option value="" selected disabled>Seleccione una opción...</option>
                                     @foreach ($training_centers as $training)
@@ -63,6 +53,26 @@
                                     @endforeach
                                 </select>
                                 <label for="training_center_id" class="text-secondary">Centro de Formación</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <select name="cohort_id" id="cohort_id" class="form-select" required>
+                                    <option value="" selected disabled>Seleccione una opción...</option>
+                                    @foreach ($cohorts as $cohort)
+                                        <option value="{{ $cohort->id }}">{{ $cohort->code }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="cohort_id" class="text-secondary">Ficha Asociada</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <select name="environment_id" id="course_environment_id" class="form-select" required>
+                                    <option value="" selected disabled>Seleccione una opción...</option>
+                                    @foreach ($environments as $environment)
+                                        <option value="{{ $environment->id }}">{{ $environment->name }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="course_environment_id" class="text-secondary">Ambiente Asociado</label>
                             </div>
 
                             <input type="file" name="urlFoto" class="form-control-file" accept="image/*"">

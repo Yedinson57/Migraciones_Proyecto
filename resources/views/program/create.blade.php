@@ -57,6 +57,15 @@
                             </div>
 
                             <div class="form-floating mb-4">
+                                <select name="modality" id="modality" class="form-select" required>
+                                    <option value="">Seleccione la modalidad</option>
+                                    <option value="tecnologo">Presencial</option>
+                                    <option value="tecnico">Virtual</option>
+                                </select>
+                                <label for="modality" class="text-secondary">Modalidad</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
                                 <input type="text"
                                     class="form-control"
                                     id="duration"
@@ -75,6 +84,8 @@
                                 </select>
                                 <label for="program_area_id" class="text-secondary">Área de Especialidad</label>
                             </div>
+
+                            <input type="file" name="urlFoto" class="form-control-file" accept="image/*"">
 
                             <div class=" d-flex justify-content-between align-items-center mt-5">
                             <a href="/" class="btn btn-outline-secondary px-4 py-2 fw-medium rounded-3">

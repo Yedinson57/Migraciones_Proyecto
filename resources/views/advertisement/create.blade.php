@@ -56,6 +56,36 @@
                             </div>
 
                             <div class="form-floating mb-4">
+                                <input type="text"
+                                    class="form-control"
+                                    id="author"
+                                    name="author"
+                                    placeholder="Ingrese el autor del anuncio"
+                                    required>
+                                <label for="author" class="text-secondary">Autor</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <input type="text"
+                                    class="form-control"
+                                    id="summary"
+                                    name="summary"
+                                    placeholder="Resumen del anuncio"
+                                    required>
+                                <label for="summary" class="text-secondary">Resumen</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <input type="text"
+                                    class="form-control"
+                                    id="content"
+                                    name="content"
+                                    placeholder="Contenido del anuncio"
+                                    required>
+                                <label for="content" class="text-secondary">Contenido</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
                                 <select name="training_center_id" id="advertisement_training_center_id" class="form-select" required>
                                     <option value="" selected disabled>Seleccione una opción...</option>
                                     @foreach ($training_centers as $training_center)
@@ -65,24 +95,25 @@
                                 <label for="advertisement_training_center_id" class="text-secondary">Centro al que pertenece</label>
                             </div>
 
+                            <input type="file" name="urlFoto" class="form-control-file" accept="image/*"">
+
                             <div class=" d-flex justify-content-between align-items-center mt-5">
-                            <a href="/" class="btn btn-outline-secondary px-4 py-2 fw-medium rounded-3">
-                                Cancelar
-                            </a>
-                            <button type="submit" class="btn btn-dark px-5 py-2 fw-bold rounded-3">
-                                Registrar Anuncio
-                            </button>
+                                <a href="/" class="btn btn-outline-secondary px-4 py-2 fw-medium rounded-3">
+                                    Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-dark px-5 py-2 fw-bold rounded-3">
+                                    Registrar Anuncio
+                                </button>
+                            </div>
+
+                        </form>
                     </div>
-
-                    </form>
+                    <a href="{{ route('advertisement.index') }}" class="btn text-white fw-bold px-4 py-2 shadow-sm d-inline-flex align-items-center gap-2" style="background-color: #39A900;">
+                        Revisar Registros
+                    </a>
                 </div>
-                <a href="{{ route('advertisement.index') }}" class="btn text-white fw-bold px-4 py-2 shadow-sm d-inline-flex align-items-center gap-2" style="background-color: #39A900;">
-                    Revisar Registros
-                </a>
             </div>
-
         </div>
     </div>
-</div>
 </div>
 @endsection

@@ -17,52 +17,66 @@
                 <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
                     
                     <div class="card-header text-white text-center py-4" style="background-color: #39A900; border-bottom: none;">
-                        <h4 class="mb-0 fw-bold">Detalle del Programa</h4>
-                        <p class="mb-0 mt-1 small opacity-75">{{ $programs['name'] }}</p>
+                        <h4 class="mb-0 fw-bold">Detalle del Ambiente</h4>
+                        <p class="mb-0 mt-1 small opacity-75">{{ $advertisement['title'] }}</p>
                     </div>
                     
                     <div class="card-body p-4 p-md-5 bg-white">
                         
                         <div class="mb-4">
-                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID de Programa</span>
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID de Ambiente</span>
                             <div class="p-3 bg-light rounded-3 fw-bold text-secondary border-start border-3 border-secondary">
-                                #{{ $programs['id'] }}
+                                #{{ $advertisement['id'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Nombre</span>
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Titulo</span>
                             <div class="p-3 bg-light rounded-3 fw-medium text-dark">
-                                {{ $programs['name'] }}
+                                {{ $advertisement['title'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Descripción</span>
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Categoria</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $programs['description'] }}
+                                {{ $advertisement['category'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Tipo del programa</span>
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Fecha de Publicación</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $programs['type'] }}
+                                {{ $advertisement['publish_date'] }}
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Duración</span>
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Autor</span>
                             <div class="p-3 bg-light rounded-3 text-dark">
-                                {{ $programs['duration'] }}
+                                {{ $advertisement['author'] }}
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Resumen</span>
+                            <div class="p-3 bg-light rounded-3 text-dark">
+                                {{ $advertisement['summary'] }}
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Contenido</span>
+                            <div class="p-3 bg-light rounded-3 text-dark">
+                                {{ $advertisement['content'] }}
                             </div>
                         </div>
 
                         <div class="row g-3 mb-4">
                             <div class="col-6">
-                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Área</span>
+                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Centro</span>
                                 <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
-                                    {{ $programs['area_id'] }}
+                                    {{ $advertisement['training_center_id'] }}
                                 </div>
                             </div>
                         </div>
@@ -73,13 +87,13 @@
                             <div class="col-sm-6">
                                 <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Fecha de registro</span>
                                 <div class="p-2 bg-light rounded-2 small text-secondary">
-                                    {{ \Carbon\Carbon::parse($programs['created_at'])->format('d/m/Y H:i') }}
+                                    {{ \Carbon\Carbon::parse($advertisement['created_at'])->format('d/m/Y H:i') }}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">Última actualización</span>
                                 <div class="p-2 bg-light rounded-2 small text-secondary">
-                                    {{ \Carbon\Carbon::parse($programs['updated_at'])->format('d/m/Y H:i') }}
+                                    {{ \Carbon\Carbon::parse($advertisement['updated_at'])->format('d/m/Y H:i') }}
                                 </div>
                             </div>
                         </div>

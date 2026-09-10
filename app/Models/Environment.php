@@ -24,4 +24,8 @@ class Environment extends Model
         'location',
         'training_center_id',
     ];
+
+    protected $guarded = [
+        'urlFoto'
+    ];
 }

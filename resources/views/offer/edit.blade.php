@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="program_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">offera al que pertenece</label>
+                                <label for="program_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Programa al que pertenece</label>
                                 <select name="program_id" id="program_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
                                     @foreach($programs as $program)
                                     <option value="{{ $program->id }}" {{ old('program_id', $offers->program_id) == $program->id ? 'selected' : '' }}>

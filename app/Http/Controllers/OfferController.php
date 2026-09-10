@@ -26,7 +26,16 @@ class OfferController extends Controller
     
     public function admin(Request $request){
 
-        Offer::create($request->all());
+        $offers = Offer::create($request->all());
+        
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlFoto");
+
+        $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+
+        $offers->urlFoto = $nombreArchivo;
+        $offers->save();
 
         return redirect()->route('offer.index');
 

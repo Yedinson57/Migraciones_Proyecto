@@ -14,7 +14,8 @@ class ApprenticeController extends Controller
 
         $courses=Course::all();
         $computers=Computer::all();
-        return view('apprentice.admin',compact('courses','computers'));
+        
+        return view('apprentice.create',compact('courses','computers'));
     }
 
     public function index(){

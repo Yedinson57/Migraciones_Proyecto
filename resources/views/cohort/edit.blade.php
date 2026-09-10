@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="offer_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">cohorta al que pertenece</label>
+                                <label for="offer_id" class="form-label text-muted small fw-bold text-uppercase tracking-wider">Oferta a la que pertenece</label>
                                 <select name="offer_id" id="offer_id" class="form-select form-select-lg bg-light border-0 rounded-3 text-dark fw-medium" required>
                                     @foreach($offers as $offer)
                                     <option value="{{ $offer->id }}" {{ old('offer_id', $cohorts->offer_id) == $offer->id ? 'selected' : '' }}>
