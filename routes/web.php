@@ -63,13 +63,13 @@ Route::get('trainingcenter/{trainingcenter}/editar',[TrainingcenterController::c
 Route::put('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'update'])->name('trainingcenter.update');
 Route::delete('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'destroy'])->name('trainingcenter.destroy');
 
-Route::get('computer/create',[ComputerController::class,'create'])->name('computer.create');
-Route::post('computer/admin',[ComputerController::class,'admin'])->name('computer.admin');
-Route::get('computer/list',[ComputerController::class,'index'])->name('computer.index');
-Route::get('computer/{id}',[ComputerController::class,'show'])->name('computer.show');
-Route::get('computer/{computer}/editar',[ComputerController::class,'edit'])->name('computer.edit');
-Route::put('computer/{computer}',[ComputerController::class,'update'])->name('computer.update');
-Route::delete('computer/{computer}',[ComputerController::class,'destroy'])->name('computer.destroy');
+// Route::get('computer/create',[ComputerController::class,'create'])->name('computer.create');
+// Route::post('computer/admin',[ComputerController::class,'admin'])->name('computer.admin');
+// Route::get('computer/list',[ComputerController::class,'index'])->name('computer.index');
+// Route::get('computer/{id}',[ComputerController::class,'show'])->name('computer.show');
+// Route::get('computer/{computer}/editar',[ComputerController::class,'edit'])->name('computer.edit');
+// Route::put('computer/{computer}',[ComputerController::class,'update'])->name('computer.update');
+// Route::delete('computer/{computer}',[ComputerController::class,'destroy'])->name('computer.destroy');
 
 Route::get('course/create',[CourseController::class,'create'])->name('course.create');
 Route::post('course/admin',[CourseController::class,'admin'])->name('course.admin');
