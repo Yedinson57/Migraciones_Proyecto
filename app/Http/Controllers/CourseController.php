@@ -27,7 +27,7 @@ class CourseController extends Controller
 
     }
     
-    public function admin(Request $request){
+    public function store(Request $request){
 
         $course = Course::create($request->all());
         

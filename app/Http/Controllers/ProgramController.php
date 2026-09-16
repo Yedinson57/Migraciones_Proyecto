@@ -24,7 +24,7 @@ class ProgramController extends Controller
     }
 
     
-    public function admin(Request $request){
+    public function store(Request $request){
 
         $programs = Program::create($request->all());
         

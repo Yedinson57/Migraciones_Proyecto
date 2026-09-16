@@ -25,7 +25,7 @@ class ComputerController extends Controller
 
     }
 
-    public function admin(Request $request){
+    public function store(Request $request){
 
         $request->validate([
             'number' => 'required|max:255'

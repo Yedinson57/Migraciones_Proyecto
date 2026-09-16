@@ -24,7 +24,7 @@ class CohortController extends Controller
     }
 
     
-    public function admin(Request $request){
+    public function store(Request $request){
 
         Cohort::create($request->all());
         

@@ -24,7 +24,7 @@ class AdvertisementController extends Controller
     }
 
     
-    public function admin(Request $request){
+    public function store(Request $request){
 
         $advertisements = Advertisement::create($request->all());
         

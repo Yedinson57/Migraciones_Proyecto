@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="card-body p-4 p-md-5 bg-white">
-                        <form action="{{ route('advertisement.admin') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('advertisement.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-floating mb-4">

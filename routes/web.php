@@ -48,7 +48,7 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::get('/register', function () {return view('auth.register');})->name('register');
 
 Route::get('area/create',[AreaController::class,'create'])->name('area.create');
-Route::post('area/admin',[AreaController::class,'admin'])->name('area.admin');
+Route::post('area/store',[AreaController::class,'store'])->name('area.store');
 Route::get('area/list',[AreaController::class,'index'])->name('area.index');
 Route::get('area/{id}',[AreaController::class,'show'])->name('area.show');
 Route::get('area/{area}/editar',[AreaController::class,'edit'])->name('area.edit');
@@ -56,7 +56,7 @@ Route::put('area/{area}',[AreaController::class,'update'])->name('area.update');
 Route::delete('area/{area}',[AreaController::class,'destroy'])->name('area.destroy');
 
 Route::get('trainingcenter/create',[TrainingCenterController::class,'create'])->name('trainingcenter.create');
-Route::post('trainingcenter/admin',[TrainingCenterController::class,'admin'])->name('trainingcenter.admin');
+Route::post('trainingcenter/store',[TrainingCenterController::class,'store'])->name('trainingcenter.store');
 Route::get('trainingcenter/list',[TrainingcenterController::class,'index'])->name('trainingcenter.index');
 Route::get('trainingcenter/{id}',[TrainingcenterController::class,'show'])->name('trainingcenter.show');
 Route::get('trainingcenter/{trainingcenter}/editar',[TrainingcenterController::class,'edit'])->name('trainingcenter.edit');
@@ -64,7 +64,7 @@ Route::put('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'u
 Route::delete('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'destroy'])->name('trainingcenter.destroy');
 
 // Route::get('computer/create',[ComputerController::class,'create'])->name('computer.create');
-// Route::post('computer/admin',[ComputerController::class,'admin'])->name('computer.admin');
+// Route::post('computer/store',[ComputerController::class,'store'])->name('computer.store');
 // Route::get('computer/list',[ComputerController::class,'index'])->name('computer.index');
 // Route::get('computer/{id}',[ComputerController::class,'show'])->name('computer.show');
 // Route::get('computer/{computer}/editar',[ComputerController::class,'edit'])->name('computer.edit');
@@ -72,7 +72,7 @@ Route::delete('trainingcenter/{trainingcenter}',[TrainingcenterController::class
 // Route::delete('computer/{computer}',[ComputerController::class,'destroy'])->name('computer.destroy');
 
 Route::get('course/create',[CourseController::class,'create'])->name('course.create');
-Route::post('course/admin',[CourseController::class,'admin'])->name('course.admin');
+Route::post('course/store',[CourseController::class,'store'])->name('course.store');
 Route::get('course/list',[CourseController::class,'index'])->name('course.index');
 Route::get('course/{id}',[CourseController::class,'show'])->name('course.show');
 Route::get('course/{course}/editar',[CourseController::class,'edit'])->name('course.edit');
@@ -80,7 +80,7 @@ Route::put('course/{course}',[CourseController::class,'update'])->name('course.u
 Route::delete('course/{course}',[CourseController::class,'destroy'])->name('course.destroy');
 
 Route::get('teacher/create',[TeacherController::class,'create'])->name('teacher.create');
-Route::post('teacher/admin',[TeacherController::class,'admin'])->name('teacher.admin');
+Route::post('teacher/store',[TeacherController::class,'store'])->name('teacher.store');
 Route::get('teacher/list',[TeacherController::class,'index'])->name('teacher.index');
 Route::get('teacher/{id}',[TeacherController::class,'show'])->name('teacher.show');
 Route::get('teacher/{teacher}/editar',[TeacherController::class,'edit'])->name('teacher.edit');
@@ -88,7 +88,7 @@ Route::put('teacher/{teacher}',[TeacherController::class,'update'])->name('teach
 Route::delete('teacher/{teacher}',[TeacherController::class,'destroy'])->name('teacher.destroy');
 
 Route::get('apprentice/create',[ApprenticeController::class,'create'])->name('apprentice.create');
-Route::post('apprentice/admin',[ApprenticeController::class,'admin'])->name('apprentice.admin');
+Route::post('apprentice/store',[ApprenticeController::class,'store'])->name('apprentice.store');
 Route::get('apprentice/list',[ApprenticeController::class,'index'])->name('apprentice.index');
 Route::get('apprentice/{id}',[ApprenticeController::class,'show'])->name('apprentice.show');
 Route::get('apprentice/{apprentice}/editar',[ApprenticeController::class,'edit'])->name('apprentice.edit');
@@ -96,7 +96,7 @@ Route::put('apprentice/{apprentice}',[ApprenticeController::class,'update'])->na
 Route::delete('apprentice/{apprentice}',[ApprenticeController::class,'destroy'])->name('apprentice.destroy');
 
 Route::get('program/create',[ProgramController::class,'create'])->name('program.create');
-Route::post('program/admin',[ProgramController::class,'admin'])->name('program.admin');
+Route::post('program/store',[ProgramController::class,'store'])->name('program.store');
 Route::get('program/list',[ProgramController::class,'index'])->name('program.index');
 Route::get('program/{id}',[ProgramController::class,'show'])->name('program.show');
 Route::get('program/{programs}/editar',[ProgramController::class,'edit'])->name('program.edit');
@@ -104,7 +104,7 @@ Route::put('program/{programs}',[ProgramController::class,'update'])->name('prog
 Route::delete('program/{programs}',[ProgramController::class,'destroy'])->name('program.destroy');
 
 Route::get('offer/create',[OfferController::class,'create'])->name('offer.create');
-Route::post('offer/admin',[OfferController::class,'admin'])->name('offer.admin');
+Route::post('offer/store',[OfferController::class,'store'])->name('offer.store');
 Route::get('offer/list',[OfferController::class,'index'])->name('offer.index');
 Route::get('offer/{id}',[OfferController::class,'show'])->name('offer.show');
 Route::get('offer/{offers}/editar',[OfferController::class,'edit'])->name('offer.edit');
@@ -112,7 +112,7 @@ Route::put('offer/{offers}',[OfferController::class,'update'])->name('offer.upda
 Route::delete('offer/{offers}',[OfferController::class,'destroy'])->name('offer.destroy');
 
 Route::get('cohort/create',[CohortController::class,'create'])->name('cohort.create');
-Route::post('cohort/admin',[CohortController::class,'admin'])->name('cohort.admin');
+Route::post('cohort/store',[CohortController::class,'store'])->name('cohort.store');
 Route::get('cohort/list',[CohortController::class,'index'])->name('cohort.index');
 Route::get('cohort/{id}',[CohortController::class,'show'])->name('cohort.show');
 Route::get('cohort/{cohorts}/editar',[CohortController::class,'edit'])->name('cohort.edit');
@@ -120,7 +120,7 @@ Route::put('cohort/{cohorts}',[CohortController::class,'update'])->name('cohort.
 Route::delete('cohort/{cohorts}',[CohortController::class,'destroy'])->name('cohort.destroy');
 
 Route::get('environment/create',[EnvironmentController::class,'create'])->name('environment.create');
-Route::post('environment/admin',[EnvironmentController::class,'admin'])->name('environment.admin');
+Route::post('environment/store',[EnvironmentController::class,'store'])->name('environment.store');
 Route::get('environment/list',[EnvironmentController::class,'index'])->name('environment.index');
 Route::get('environment/{id}',[EnvironmentController::class,'show'])->name('environment.show');
 Route::get('environment/{environments}/editar',[EnvironmentController::class,'edit'])->name('environment.edit');
@@ -128,7 +128,7 @@ Route::put('environment/{environments}',[EnvironmentController::class,'update'])
 Route::delete('environment/{environments}',[EnvironmentController::class,'destroy'])->name('environment.destroy');
 
 Route::get('advertisement/create',[AdvertisementController::class,'create'])->name('advertisement.create');
-Route::post('advertisement/admin',[AdvertisementController::class,'admin'])->name('advertisement.admin');
+Route::post('advertisement/store',[AdvertisementController::class,'store'])->name('advertisement.store');
 Route::get('advertisement/list',[AdvertisementController::class,'index'])->name('advertisement.index');
 Route::get('advertisement/{id}',[AdvertisementController::class,'show'])->name('advertisement.show');
 Route::get('advertisement/{advertisements}/editar',[AdvertisementController::class,'edit'])->name('advertisement.edit');

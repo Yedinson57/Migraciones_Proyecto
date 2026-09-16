@@ -24,7 +24,7 @@ class OfferController extends Controller
     }
 
     
-    public function admin(Request $request){
+    public function store(Request $request){
 
         $offers = Offer::create($request->all());
         
