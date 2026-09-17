@@ -12,6 +12,7 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CohortController;
 use App\Http\Controllers\EnvironmentController;
 use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\OfertaController;
@@ -27,7 +28,7 @@ use App\Http\Controllers\EventoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () { return view('home'); })->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Rutas de Anuncios
 Route::get('/anuncios', [AnuncioController::class, 'index'])->name('anuncios.index');

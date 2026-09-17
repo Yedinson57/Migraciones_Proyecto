@@ -4,7 +4,7 @@
 
 <div class="container-fluid px-0 mb-5 rounded-3 overflow-hidden shadow-sm">
     <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        
+
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="carousel-inner">
-            
+
             <div class="carousel-item active" data-bs-interval="5000">
                 <div class="position-relative" style="height: 500px;">
                     <div class="w-100 h-100 bg-dark opacity-50 position-absolute top-0 start-0 z-1"></div>
@@ -77,13 +77,13 @@
     <!-- Anuncios -->
 
     <div class="mt-5">
-        
+
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mt-4">
             <div>
                 <span class="badge px-3 py-2 fs-6 rounded-pill text-white mb-2" style="background-color: #39A900;">
                     <i class="bi bi-megaphone-fill me-1"></i> Novedades del Centro
                 </span>
-                <h2 class="fw-bold text-dark mb-0">Anuncios, Ofertas y Eventos</h2>
+                <h2 class="fw-bold text-dark mb-0">Anuncios, Ofertas y Programas</h2>
             </div>
             <div class="mt-2 mt-md-0">
                 <span class="text-muted small">Actualizado semanalmente</span>
@@ -105,160 +105,184 @@
 
         <div class="row g-4">
 
+            <!-- SECCIÓN 1: OFERTAS EDUCATIVAS -->
+            @forelse($offers as $offer)
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-1 border-secundary shadow-lg rounded-4 overflow-hidden card-hover">
+                <div class="card h-100 border-1 border-secondary shadow-lg rounded-4 overflow-hidden card-hover">
                     <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
                         <span class="badge bg-success-subtle text-success border border-success fw-bold px-3 py-2 rounded-pill">
-                            <i class="bi bi-journal-plus me-1"></i> Oferta Educativa
+                            <i class="bi bi-journal-plus me-1"></i> Oferta
                         </span>
-                        <small class="text-muted"><i class="bi bi-calendar3 me-1"></i> 20 Ago 2026</small>
+                        <small class="text-muted">
+                            <i class="bi bi-calendar3 me-1"></i> {{ \Carbon\Carbon::parse($offer->registration_date)->format('d M Y') }}
+                        </small>
                     </div>
                     <div class="card-body px-4">
-                        <h5 class="card-title fw-bold text-dark mb-2">Nuevo Tecnólogo en Desarrollo de Software</h5>
+                        <h5 class="card-title fw-bold text-dark mb-2">
+                            {{ $offer->program->name ?? 'Programa no asignado' }}
+                        </h5>
                         <p class="card-text text-secondary small mb-3">
-                            Abierta la preinscripción para la jornada nocturna. Aprende desarrollo web, bases de datos y desarrollo de APIS con metodologías ágiles.
+                            Días de formación: <strong>{{ $offer->day }}</strong><br>
+                            Cupos disponibles: <strong>{{ $offer->capacity }}</strong>
                         </p>
                         <ul class="list-unstyled small text-muted mb-0">
-                            <li class="mb-1"><i class="bi bi-clock me-2 text-success"></i> 24 Meses (Lectiva + Práctica)</li>
-                            <li><i class="bi bi-geo-alt me-2 text-success"></i> Centro de Formación Central</li>
+                            <li class="mb-1"><i class="bi bi-clock me-2 text-success"></i> Duración: {{ $offer->program->duration ?? 'N/A' }}</li>
+                            <li><i class="bi bi-laptop me-2 text-success"></i> Modalidad: {{ $offer->program->modality ?? 'N/A' }}</li>
                         </ul>
                     </div>
                     <div class="card-footer bg-light border-0 px-4 py-3 text-end">
-                        <a href="{{ route('ofertas.index') }}" class="btn btn-sm text-white fw-bold px-3 rounded-3" style="background-color: #39A900;">
-                            Consultar ofertas <i class="bi bi-arrow-right ms-1"></i>
+                        <a href="{{ route('offer.show', $offer->id) }}" class="btn btn-sm text-white fw-bold px-3 rounded-3" style="background-color: #39A900;">
+                            Ver detalles <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
                 </div>
             </div>
+            @empty
+            <div class="col-12 text-center text-muted">No hay ofertas publicadas por el momento.</div>
+            @endforelse
 
+            <!-- SECCIÓN 2: PROGRAMAS DE FORMACIÓN -->
+            @forelse($programs as $program)
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-1 border-secundary shadow-lg rounded-4 overflow-hidden card-hover">
+                <div class="card h-100 border-1 border-secondary shadow-lg rounded-4 overflow-hidden card-hover">
                     <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
                         <span class="badge bg-primary-subtle text-primary border border-primary fw-bold px-3 py-2 rounded-pill">
-                            <i class="bi bi-trophy me-1"></i> Evento
+                            <i class="bi bi-award me-1"></i> Programa
                         </span>
-                        <small class="text-muted"><i class="bi bi-calendar3 me-1"></i> 28 Ago 2026</small>
+                        <span class="badge bg-light text-dark border small">{{ $program->type }}</span>
                     </div>
                     <div class="card-body px-4">
-                        <h5 class="card-title fw-bold text-dark mb-2">Feria de Innovación y Tecnología SENA</h5>
+                        <h5 class="card-title fw-bold text-dark mb-2">{{ $program->name }}</h5>
                         <p class="card-text text-secondary small mb-3">
-                            Exposición de proyectos formativos creados por los aprendices. Contaremos con la participación de empresas invitadas y muestra de prototipos.
+                            {{ Str::limit($program->description, 100) }}
                         </p>
                         <ul class="list-unstyled small text-muted mb-0">
-                            <li class="mb-1"><i class="bi bi-clock me-2 text-primary"></i> 8:00 AM – 4:00 PM</li>
-                            <li><i class="bi bi-geo-alt me-2 text-primary"></i> Auditorio Principal</li>
+                            <li class="mb-1"><i class="bi bi-clock me-2 text-primary"></i> {{ $program->duration }}</li>
+                            <li><i class="bi bi-geo-alt me-2 text-primary"></i> Modalidad: {{ $program->modality }}</li>
                         </ul>
                     </div>
                     <div class="card-footer bg-light border-0 px-4 py-3 text-end">
-                        <a href="{{ route('eventos.index') }}" class="btn btn-sm btn-outline-primary fw-bold px-3 rounded-3">
-                            Más Detalles <i class="bi bi-arrow-right ms-1"></i>
+                        <a href="{{ route('program.show', $program->id) }}" class="btn btn-sm btn-outline-primary fw-bold px-3 rounded-3">
+                            Ver programa <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
                 </div>
             </div>
+            @empty
+            <div class="col-12 text-center text-muted">No hay programas de formación registrados.</div>
+            @endforelse
 
+            <!-- SECCIÓN 3: ANUNCIOS -->
+            @forelse($advertisements as $ad)
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-1 border-secundary shadow-lg rounded-4 overflow-hidden card-hover">
+                <div class="card h-100 border-1 border-secondary shadow-lg rounded-4 overflow-hidden card-hover">
                     <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
                         <span class="badge bg-info-subtle text-info-emphasis border border-info fw-bold px-3 py-2 rounded-pill">
-                            <i class="bi bi-megaphone-fill me-1"></i> Anuncios
+                            <i class="bi bi-megaphone-fill me-1"></i> Anuncio
                         </span>
-                        <small class="text-muted"><i class="bi bi-calendar3 me-1"></i> 02 Sep 2026</small>
+                        <small class="text-muted">
+                            <i class="bi bi-calendar3 me-1"></i> {{ \Carbon\Carbon::parse($ad->publish_date)->format('d M Y') }}
+                        </small>
                     </div>
                     <div class="card-body px-4">
-                        <h5 class="card-title fw-bold text-dark mb-2">Taller de Hoja de Vida y Entrevistas</h5>
+                        <h5 class="card-title fw-bold text-dark mb-2">{{ $ad->title }}</h5>
                         <p class="card-text text-secondary small mb-3">
-                            Organizado por Bienestar al Aprendiz. Aprende a redactar un perfil profesional atractivo para el inicio de tu etapa productiva.
+                            {{ $ad->summary }}
                         </p>
                         <ul class="list-unstyled small text-muted mb-0">
-                            <li class="mb-1"><i class="bi bi-clock me-2 text-info"></i> 2:00 PM – 5:00 PM</li>
-                            <li><i class="bi bi-laptop me-2 text-info"></i> Modalidad Virtual (Teams)</li>
+                            <li class="mb-1"><i class="bi bi-person me-2 text-info"></i> Autor: {{ $ad->author }}</li>
+                            <li><i class="bi bi-building me-2 text-info"></i> Centro: {{ $ad->trainingCenter->name ?? 'General' }}</li>
                         </ul>
                     </div>
                     <div class="card-footer bg-light border-0 px-4 py-3 text-end">
-                        <a href="{{ route('anuncios.index') }}" class="btn btn-sm btn-outline-dark fw-bold px-3 rounded-3">
-                            Conoce más <i class="bi bi-arrow-right ms-1"></i>
+                        <a href="{{ route('advertisement.show', $ad->id) }}" class="btn btn-sm btn-outline-dark fw-bold px-3 rounded-3">
+                            Leer más <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
                 </div>
             </div>
+            @empty
+            <div class="col-12 text-center text-muted">No hay anuncios activos.</div>
+            @endforelse
 
         </div>
+
     </div>
+</div>
 
-    <div id="homeGuestContent" class="my-4">
-        <div class="card border border-dark shadow-sm rounded-4 p-4 bg-light">
-            <div class="d-flex align-items-center justify-content-between">
-                <div>
-                    <h5 class="fw-bold mb-1 text-dark">¿Eres Administrador o Instructor?</h5>
-                    <p class="mb-0 text-muted">Inicia sesión para gestionar las listas de aprendices y fichas de formación.</p>
-                </div>
-                <a href="{{ route('login') }}" class="btn text-white fw-bold px-4 py-2 rounded-3" style="background-color: #39A900;">
-                    <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión
-                </a>
+<div id="homeGuestContent" class="my-4">
+    <div class="card border border-dark shadow-sm rounded-4 p-4 bg-light">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <h5 class="fw-bold mb-1 text-dark">¿Eres Administrador o Instructor?</h5>
+                <p class="mb-0 text-muted">Inicia sesión para gestionar las listas de aprendices y fichas de formación.</p>
             </div>
-        </div>
-    </div>
-
-    <div id="homeAdminContent" class="d-none my-4">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mt-4">
-            <h2 class="fw-bold text-dark mb-0">Acceso directo</h2>
-        </div>
-
-        <div class="row g-3 text-center mt-4">
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="{{ route('apprentice.index') }}" class="text-decoration-none">
-                    <div class="p-3 bg-white rounded-4 shadow-lg border border-success h-100 d-flex flex-column align-items-center justify-content-center">
-                        <i class="bi bi-people text-success fs-2 mb-2"></i>
-                        <span class="fw-bold text-dark small">Aprendices</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="{{ route('course.index') }}" class="text-decoration-none">
-                    <div class="p-3 bg-white rounded-4 shadow-lg border border-primary h-100 d-flex flex-column align-items-center justify-content-center">
-                        <i class="bi bi-journal-bookmark text-primary fs-2 mb-2"></i>
-                        <span class="fw-bold text-dark small">Cursos</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="{{ route('teacher.index') }}" class="text-decoration-none">
-                    <div class="p-3 bg-white rounded-4 shadow-lg border border-warning h-100 d-flex flex-column align-items-center justify-content-center">
-                        <i class="bi bi-person-badge text-warning fs-2 mb-2"></i>
-                        <span class="fw-bold text-dark small">Instructores</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <a href="{{ route('about') }}" class="text-decoration-none">
-                    <div class="p-3 bg-white rounded-4 shadow-lg border border-info h-100 d-flex flex-column align-items-center justify-content-center">
-                        <i class="bi bi-building text-info fs-2 mb-2"></i>
-                        <span class="fw-bold text-dark small">Nosotros</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4">
-                <div class="p-3 bg-white rounded-4 shadow-lg border border-dark h-100 d-flex align-items-center justify-content-between px-4">
-                    <div class="text-start">
-                        <h6 class="fw-bold text-dark mb-0">¿Necesitas ayuda?</h6>
-                        <small class="text-muted">Consulta la Misión SENA</small>
-                    </div>
-                    <a href="{{ route('about') }}" class="btn btn-sm btn-outline-success fw-bold rounded-3">
-                        Saber más
-                    </a>
-                </div>
-            </div>
+            <a href="{{ route('login') }}" class="btn text-white fw-bold px-4 py-2 rounded-3" style="background-color: #39A900;">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión
+            </a>
         </div>
     </div>
 </div>
 
+<div id="homeAdminContent" class="d-none my-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mt-4">
+        <h2 class="fw-bold text-dark mb-0">Acceso directo</h2>
+    </div>
+
+    <div class="row g-3 text-center mt-4">
+        <div class="col-6 col-md-4 col-lg-2">
+            <a href="{{ route('apprentice.index') }}" class="text-decoration-none">
+                <div class="p-3 bg-white rounded-4 shadow-lg border border-success h-100 d-flex flex-column align-items-center justify-content-center">
+                    <i class="bi bi-people text-success fs-2 mb-2"></i>
+                    <span class="fw-bold text-dark small">Aprendices</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <a href="{{ route('course.index') }}" class="text-decoration-none">
+                <div class="p-3 bg-white rounded-4 shadow-lg border border-primary h-100 d-flex flex-column align-items-center justify-content-center">
+                    <i class="bi bi-journal-bookmark text-primary fs-2 mb-2"></i>
+                    <span class="fw-bold text-dark small">Cursos</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <a href="{{ route('teacher.index') }}" class="text-decoration-none">
+                <div class="p-3 bg-white rounded-4 shadow-lg border border-warning h-100 d-flex flex-column align-items-center justify-content-center">
+                    <i class="bi bi-person-badge text-warning fs-2 mb-2"></i>
+                    <span class="fw-bold text-dark small">Instructores</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <a href="{{ route('about') }}" class="text-decoration-none">
+                <div class="p-3 bg-white rounded-4 shadow-lg border border-info h-100 d-flex flex-column align-items-center justify-content-center">
+                    <i class="bi bi-building text-info fs-2 mb-2"></i>
+                    <span class="fw-bold text-dark small">Nosotros</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-4">
+            <div class="p-3 bg-white rounded-4 shadow-lg border border-dark h-100 d-flex align-items-center justify-content-between px-4">
+                <div class="text-start">
+                    <h6 class="fw-bold text-dark mb-0">¿Necesitas ayuda?</h6>
+                    <small class="text-muted">Consulta la Misión SENA</small>
+                </div>
+                <a href="{{ route('about') }}" class="btn btn-sm btn-outline-success fw-bold rounded-3">
+                    Saber más
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
 <!-- BOTÓN FLOTANTE VOLVER ARRIBA -->
-<button id="btnScrollToTop" 
-        class="btn text-white shadow-lg rounded-circle border-0 d-flex align-items-center justify-content-center" 
-        onclick="scrollToTop()" 
-        title="Volver al principio"
-        style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #39A900; z-index: 1050; opacity: 0; pointer-events: none; transition: all 0.3s ease-in-out;">
+<button id="btnScrollToTop"
+    class="btn text-white shadow-lg rounded-circle border-0 d-flex align-items-center justify-content-center"
+    onclick="scrollToTop()"
+    title="Volver al principio"
+    style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #39A900; z-index: 1050; opacity: 0; pointer-events: none; transition: all 0.3s ease-in-out;">
     <i class="bi bi-arrow-up-short fs-2"></i>
 </button>
 
