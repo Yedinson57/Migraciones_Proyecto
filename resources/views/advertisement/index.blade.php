@@ -35,7 +35,7 @@
                                 <th class="py-3">Fecha de publicación</th>
                                 <th class="py-3">Autor</th>
                                 <th class="py-3">Resumen</th>
-                                <th class="py-3">Contenido</th>
+                                <th class="py-3" style="width:40%">Contenido</th>
                                 <th class="py-3">Centro</th>
                                 <th class="py-3">Imagen Representativa</th>
                                 <th class="text-center py-3" style="width: 25%">Acciones de Gestión</th>
