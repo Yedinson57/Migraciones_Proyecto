@@ -34,7 +34,7 @@
                 <div class="carousel-caption d-none d-md-block z-2 mt-4">
                     <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Conoce Ofertas Educativas</h1>
                     <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Explora las diversas ofertas educativas que tiene Sena disponibles.</p>
-                    <a href="/ofertas" class="btn btn-success fw-bold px-4 py-2 mt-2" style="background-color: #39A900; border-color: #39A900;">Ver Ofertas</a>
+                    <a href="/offer/list" class="btn btn-success fw-bold px-4 py-2 mt-2" style="background-color: #39A900; border-color: #39A900;">Ver Ofertas</a>
                 </div>
             </div>
 
@@ -44,9 +44,9 @@
                     <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" class="d-block w-100 h-100 object-fit-cover" alt="Gestion de Aprendices">
                 </div>
                 <div class="carousel-caption d-none d-md-block z-2 mt-4">
-                    <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Seguimiento de Eventos</h1>
-                    <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Consulta los nuevos eventos que se encuentran disponibles.</p>
-                    <a href="/eventos" class="btn btn-outline-light fw-bold px-4 py-2 mt-2">Descubre mas</a>
+                    <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Seguimiento de Programas</h1>
+                    <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Consulta los nuevos programas que se encuentran disponibles.</p>
+                    <a href="/program/list" class="btn btn-outline-light fw-bold px-4 py-2 mt-2">Descubre mas</a>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                 <div class="carousel-caption d-none d-md-block z-2 mt-4">
                     <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Seguimiento de Anuncios</h1>
                     <p class="fs-4 fw-medium text-white-50" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Consulta en tiempo anuncios sobre la institución.</p>
-                    <a href="/anuncios" class="btn btn-outline-light fw-bold px-4 py-2 mt-2">Saber más</a>
+                    <a href="/advertisement/list" class="btn btn-outline-light fw-bold px-4 py-2 mt-2">Saber más</a>
                 </div>
             </div>
 
@@ -191,7 +191,7 @@
                         </p>
                         <ul class="list-unstyled small text-muted mb-0">
                             <li class="mb-1"><i class="bi bi-person me-2 text-info"></i> Autor: {{ $ad->author }}</li>
-                            <li><i class="bi bi-building me-2 text-info"></i> Centro: {{ $ad->trainingCenter->name ?? 'General' }}</li>
+                            <li><i class="bi bi-building me-2 text-info"></i> Centro: {{ $ad->trainingcenter->name ?? 'General' }}</li>
                         </ul>
                     </div>
                     <div class="card-footer bg-light border-0 px-4 py-3 text-end">
