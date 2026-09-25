@@ -93,4 +93,5 @@ class AreaController extends Controller
         return $area;
     }
 
+    
 }

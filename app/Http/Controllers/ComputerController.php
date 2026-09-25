@@ -31,7 +31,7 @@ class ComputerController extends Controller
             'number' => 'required|max:255'
         ]);
 
-        $computers = Computer::create($request->all());
+        $computer = Computer::create($request->all());
         
         //ADJUNTAR EL PDF
         $file=$request->file("urlFoto");
@@ -39,12 +39,12 @@ class ComputerController extends Controller
         $nombreArchivo = "foto_".time().".".$file->guessExtension();
         $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
 
-        $computers->urlFoto = $nombreArchivo;
-        $computers->save();
+        $computer->urlFoto = $nombreArchivo;
+        $computer->save();
 
         // return redirect()->route('computer.index');
 
-        return response()->json($computers);
+        return response()->json($computer);
 
     }
 

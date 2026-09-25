@@ -17,9 +17,9 @@ use App\Http\Controllers\ComputerController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
     return $request->user();
-});
+})->middleware('auth:sanctum');
 
 Route::get('areas', [AreaController::class,'index'])->name('api.v1.areas.index');
 Route::post('areas', [AreaController::class,'store'])->name('api.v1.areas.store');
