@@ -31,27 +31,33 @@ class ComputerController extends Controller
             'number' => 'required|max:255'
         ]);
 
-        $computer = Computer::create($request->all());
-        return response()->json($computer);
+        $computers = Computer::create($request->all());
         
-        // //ADJUNTAR EL PDF
-        // $file=$request->file("urlFoto");
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlFoto");
 
-        // $nombreArchivo = "foto_".time().".".$file->guessExtension();
-        // $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+        $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
 
-        // $computer->urlFoto = $nombreArchivo;
-        // $computer->save();
+        $computers->urlFoto = $nombreArchivo;
+        $computers->save();
 
         // return redirect()->route('computer.index');
+
+        return response()->json($computers);
 
     }
 
     public function show ($id){
 
-        $computer=Computer::find($id);
+        $computers = Computer::findOrFail($id);
+        // $category = Category::with(['posts.user'])->findOrFail($id);
+        // $category = Category::with(['posts'])->findOrFail($id);
+        return response()->json($computers);
 
-        return view('computer.show',compact('computer'));
+        // $computer=Computer::find($id);
+
+        // return view('computer.show',compact('computer'));
         
     }
 
@@ -64,15 +70,26 @@ class ComputerController extends Controller
 
     public function update(Request $request, Computer $computer){
 
+        // $computer->update($request->all());
+
+        // return redirect()->route('computer.index');
+
+        $request->validate([
+            'name' => 'required|max:255',
+            ]);
+
         $computer->update($request->all());
 
-        return redirect()->route('computer.index');
+        return $computer;
 
     }
 
     public function destroy(Computer $computer)
     {
+        // $computer->delete();
+        // return redirect()->route('computer.index');
+
         $computer->delete();
-        return redirect()->route('computer.index');
+        return $computer;
     }
 }

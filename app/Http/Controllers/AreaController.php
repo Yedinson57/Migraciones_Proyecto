@@ -15,15 +15,25 @@ class AreaController extends Controller
 
     public function index(){
 
+        // $areas = Area::all();
+
+        // return view('area.index',compact('areas'));
+
         $areas = Area::all();
 
-        return view('area.index',compact('areas'));
+        return response()->json($areas);
 
     }
 
     public function store(Request $request){
 
+        // $areas = Area::create($request->all());
+
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
         $areas = Area::create($request->all());
+
         
         //ADJUNTAR EL PDF
         $file=$request->file("urlFoto");
@@ -34,15 +44,22 @@ class AreaController extends Controller
         $areas->urlFoto = $nombreArchivo;
         $areas->save();
 
-        return redirect()->route('area.index');
+        // return redirect()->route('area.index');
+
+        return response()->json($areas);
 
     }
 
     public function show ($id){
 
-        $area=Area::find($id);
+        $areas = Area::findOrFail($id);
+        // $area = Area::with(['posts.user'])->findOrFail($id);
+        // $area = Area::with(['posts'])->findOrFail($id);
+        return response()->json($areas);
 
-        return view('area.show',compact('area'));
+        // $area=Area::find($id);
+
+        // return view('area.show',compact('area'));
         
     }
 
@@ -53,16 +70,27 @@ class AreaController extends Controller
 
     public function update(Request $request, Area $area){
 
-        $area->update($request -> all());
+        // $area->update($request -> all());
 
-        return redirect()->route('area.index');
+        // return redirect()->route('area.index');
+
+        $request->validate([
+            'name' => 'required|max:255',
+            ]);
+
+        $area->update($request->all());
+
+        return $area;
 
     }
 
     public function destroy(Area $area)
     {
+        // $area->delete();
+        // return redirect()->route('area.index');
+
         $area->delete();
-        return redirect()->route('area.index');
+        return $area;
     }
 
 }

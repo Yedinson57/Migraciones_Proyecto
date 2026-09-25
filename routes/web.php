@@ -48,21 +48,21 @@ Route::get('/about', function () { return view('about'); })->name('about');
 Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::get('/register', function () {return view('auth.register');})->name('register');
 
-Route::get('area/create',[AreaController::class,'create'])->name('area.create');
-Route::post('area/store',[AreaController::class,'store'])->name('area.store');
-Route::get('area/list',[AreaController::class,'index'])->name('area.index');
-Route::get('area/{id}',[AreaController::class,'show'])->name('area.show');
-Route::get('area/{area}/editar',[AreaController::class,'edit'])->name('area.edit');
-Route::put('area/{area}',[AreaController::class,'update'])->name('area.update');
-Route::delete('area/{area}',[AreaController::class,'destroy'])->name('area.destroy');
+// Route::get('area/create',[AreaController::class,'create'])->name('area.create');
+// Route::post('area/store',[AreaController::class,'store'])->name('area.store');
+// Route::get('area/list',[AreaController::class,'index'])->name('area.index');
+// Route::get('area/{id}',[AreaController::class,'show'])->name('area.show');
+// Route::get('area/{area}/editar',[AreaController::class,'edit'])->name('area.edit');
+// Route::put('area/{area}',[AreaController::class,'update'])->name('area.update');
+// Route::delete('area/{area}',[AreaController::class,'destroy'])->name('area.destroy');
 
-Route::get('trainingcenter/create',[TrainingCenterController::class,'create'])->name('trainingcenter.create');
-Route::post('trainingcenter/store',[TrainingCenterController::class,'store'])->name('trainingcenter.store');
-Route::get('trainingcenter/list',[TrainingcenterController::class,'index'])->name('trainingcenter.index');
-Route::get('trainingcenter/{id}',[TrainingcenterController::class,'show'])->name('trainingcenter.show');
-Route::get('trainingcenter/{trainingcenter}/editar',[TrainingcenterController::class,'edit'])->name('trainingcenter.edit');
-Route::put('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'update'])->name('trainingcenter.update');
-Route::delete('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'destroy'])->name('trainingcenter.destroy');
+// Route::get('trainingcenter/create',[TrainingCenterController::class,'create'])->name('trainingcenter.create');
+// Route::post('trainingcenter/store',[TrainingCenterController::class,'store'])->name('trainingcenter.store');
+// Route::get('trainingcenter/list',[TrainingcenterController::class,'index'])->name('trainingcenter.index');
+// Route::get('trainingcenter/{id}',[TrainingcenterController::class,'show'])->name('trainingcenter.show');
+// Route::get('trainingcenter/{trainingcenter}/editar',[TrainingcenterController::class,'edit'])->name('trainingcenter.edit');
+// Route::put('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'update'])->name('trainingcenter.update');
+// Route::delete('trainingcenter/{trainingcenter}',[TrainingcenterController::class,'destroy'])->name('trainingcenter.destroy');
 
 // Route::get('computer/create',[ComputerController::class,'create'])->name('computer.create');
 // Route::post('computer/store',[ComputerController::class,'store'])->name('computer.store');
