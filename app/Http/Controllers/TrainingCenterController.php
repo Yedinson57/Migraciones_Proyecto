@@ -10,26 +10,19 @@ class TrainingCenterController extends Controller
     public function create(){
 
         return view('trainingcenter.create');
-
     }
 
     public function index(){
 
         $trainingcenters = Training_center::all();
-
         return response()->json($trainingcenters);
 
         // $trainingcenters = Training_center::all();
-
         // return view('trainingcenter.index', compact('trainingcenters'));
-
     }
 
     public function store(Request $request){
 
-        $request->validate([
-            'name' => 'required|max:255',
-        ]);
         $trainingcenters = Training_center::create($request->all());
 
         // $trainingcenters = Training_center::create($request->all());
@@ -56,8 +49,6 @@ class TrainingCenterController extends Controller
         // return view('trainingcenter.show',compact('trainingcenter'));
 
         $trainingcenters = Training_center::findOrFail($id);
-        // $category = Category::with(['posts.user'])->findOrFail($id);
-        // $category = Category::with(['posts'])->findOrFail($id);
         return response()->json($trainingcenters);
     }
 
@@ -71,14 +62,8 @@ class TrainingCenterController extends Controller
         // $trainingcenter->update($request->all());
 
         // return redirect()->route('trainingcenter.index');
-
-        $request->validate([
-            'name' => 'required|max:255',
-            ]);
-
         $trainingcenter->update($request->all());
-
-        return $trainingcenter;
+        return response()->json($trainingcenter);
 
     }
 
@@ -88,6 +73,6 @@ class TrainingCenterController extends Controller
         // return redirect()->route('trainingcenter.index');
 
         $trainingcenter->delete();
-        return $trainingcenter;
+        return response()->json($trainingcenter);
     }
 }

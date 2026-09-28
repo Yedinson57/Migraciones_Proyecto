@@ -20,7 +20,6 @@ class AreaController extends Controller
         // return view('area.index',compact('areas'));
 
         $areas = Area::all();
-
         return response()->json($areas);
 
     }
@@ -29,11 +28,7 @@ class AreaController extends Controller
 
         // $areas = Area::create($request->all());
 
-        $request->validate([
-            'name' => 'required|max:255',
-        ]);
         $areas = Area::create($request->all());
-
         
         //ADJUNTAR EL PDF
         $file=$request->file("urlFoto");
@@ -53,8 +48,6 @@ class AreaController extends Controller
     public function show ($id){
 
         $areas = Area::findOrFail($id);
-        // $area = Area::with(['posts.user'])->findOrFail($id);
-        // $area = Area::with(['posts'])->findOrFail($id);
         return response()->json($areas);
 
         // $area=Area::find($id);
@@ -74,13 +67,9 @@ class AreaController extends Controller
 
         // return redirect()->route('area.index');
 
-        $request->validate([
-            'name' => 'required|max:255',
-            ]);
-
         $area->update($request->all());
 
-        return $area;
+        return response()->json($area);
 
     }
 
@@ -90,7 +79,7 @@ class AreaController extends Controller
         // return redirect()->route('area.index');
 
         $area->delete();
-        return $area;
+        return response()->json($area);
     }
 
     

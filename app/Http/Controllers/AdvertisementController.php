@@ -17,14 +17,20 @@ class AdvertisementController extends Controller
 
     public function index(){
 
+        // $advertisements = Advertisement::all();
+
+        // return view('advertisement.index', compact('advertisements'));
+
         $advertisements = Advertisement::all();
 
-        return view('advertisement.index', compact('advertisements'));
+        return response()->json($advertisements);
 
     }
 
     
     public function store(Request $request){
+
+        // $advertisements = Advertisement::create($request->all());
 
         $advertisements = Advertisement::create($request->all());
         
@@ -37,15 +43,20 @@ class AdvertisementController extends Controller
         $advertisements->urlFoto = $nombreArchivo;
         $advertisements->save();
 
-        return redirect()->route('advertisement.index');
+        // return redirect()->route('advertisement.index');
+
+        return response()->json($advertisements);
 
     }
 
     public function show ($id){
 
-        $advertisements=Advertisement::find($id);
+        // $advertisements=Advertisement::find($id);
 
-        return view('advertisement.show',compact('advertisements'));
+        // return view('advertisement.show',compact('advertisements'));
+
+        $advertisements = Advertisement::findOrFail($id);
+        return response()->json($advertisements);
         
     }
 
@@ -56,17 +67,21 @@ class AdvertisementController extends Controller
         return view('advertisement.edit', compact('advertisements','trainingcenters'));
     }
 
-    public function update(Request $request, Advertisement $advertisements){
+    public function update(Request $request, Advertisement $advertisement){
 
-        $advertisements->update($request->all());
+        // $advertisements->update($request->all());
+        // return redirect()->route('advertisement.index');
 
-        return redirect()->route('advertisement.index');
-
+        $advertisement->update($request->all());
+        return response()->json($advertisement);
     }
 
-    public function destroy(Advertisement $advertisements)
+    public function destroy(Advertisement $advertisement)
     {
-        $advertisements->delete();
-        return redirect()->route('advertisement.index');
+        // $advertisements->delete();
+        // return redirect()->route('advertisement.index');
+
+        $advertisement->delete();
+        return response()->json($advertisement);
     }
 }

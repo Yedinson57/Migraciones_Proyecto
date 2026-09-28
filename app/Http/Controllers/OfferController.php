@@ -17,14 +17,17 @@ class OfferController extends Controller
 
     public function index(){
 
+        // $offers = Offer::all();
+        // return view('offer.index', compact('offers'));
+
         $offers = Offer::all();
-
-        return view('offer.index', compact('offers'));
-
+        return response()->json($offers);
     }
 
     
     public function store(Request $request){
+
+        // $offers = Offer::create($request->all());
 
         $offers = Offer::create($request->all());
         
@@ -37,16 +40,18 @@ class OfferController extends Controller
         $offers->urlFoto = $nombreArchivo;
         $offers->save();
 
-        return redirect()->route('offer.index');
+        // return redirect()->route('offer.index');
 
+        return response()->json($offers);
     }
 
     public function show ($id){
 
-        $offers=Offer::find($id);
-
-        return view('offer.show',compact('offers'));
+        // $offers=Offer::find($id);
+        // return view('offer.show',compact('offers'));
         
+        $offers = Offer::findOrFail($id);
+        return response()->json($offers);
     }
 
     public function edit(Offer $offers){
@@ -56,17 +61,21 @@ class OfferController extends Controller
         return view('offer.edit', compact('offers', 'programs'));
     }
 
-    public function update(Request $request, Offer $offers){
+    public function update(Request $request, Offer $offer){
 
-        $offers->update($request->all());
+        // $offers->update($request->all());
+        // return redirect()->route('offer.index');
 
-        return redirect()->route('offer.index');
-
+        $offer->update($request->all());
+        return response()->json($offer);
     }
 
-    public function destroy(Offer $offers)
+    public function destroy(Offer $offer)
     {
-        $offers->delete();
-        return redirect()->route('offer.index');
+        // $offers->delete();
+        // return redirect()->route('offer.index');
+
+        $offer->delete();
+        return response()->json($offer);
     }
 }

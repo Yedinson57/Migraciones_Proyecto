@@ -20,15 +20,21 @@ class ApprenticeController extends Controller
 
     public function index(){
 
+        // $apprentices = Apprentice::all();
+
+        // return view('apprentice.index', compact('apprentices'));
+
         $apprentices = Apprentice::all();
 
-        return view('apprentice.index', compact('apprentices'));
+        return response()->json($apprentices);
 
     }
     
     public function store(Request $request){
 
-        $apprentice = Apprentice::create($request->all());
+        // $apprentice = Apprentice::create($request->all());
+
+        $apprentices = Apprentice::create($request->all());
         
         //ADJUNTAR EL PDF
         $file=$request->file("urlFoto");
@@ -36,18 +42,23 @@ class ApprenticeController extends Controller
         $nombreArchivo = "foto_".time().".".$file->guessExtension();
         $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
 
-        $apprentice->urlFoto = $nombreArchivo;
-        $apprentice->save();
+        $apprentices->urlFoto = $nombreArchivo;
+        $apprentices->save();
 
-        return redirect()->route('apprentice.index');
+        // return redirect()->route('apprentice.index');
+
+        return response()->json($apprentices);
 
     }
 
     public function show ($id){
 
-        $apprentice=Apprentice::find($id);
+        // $apprentice=Apprentice::find($id);
 
-        return view('apprentice.show',compact('apprentice'));
+        // return view('apprentice.show',compact('apprentice'));
+
+        $apprentices = Apprentice::findOrFail($id);
+        return response()->json($apprentices);
         
     }
 
@@ -61,15 +72,21 @@ class ApprenticeController extends Controller
 
     public function update(Request $request, Apprentice $apprentice){
 
-        $apprentice->update($request->all());
+        // $apprentice->update($request->all());
 
-        return redirect()->route('apprentice.index');
+        // return redirect()->route('apprentice.index');
+
+        $apprentice->update($request->all());
+        return response()->json($apprentice);
 
     }
 
     public function destroy(Apprentice $apprentice)
     {
+        // $apprentice->delete();
+        // return redirect()->route('apprentice.index');
+
         $apprentice->delete();
-        return redirect()->route('apprentice.index');
+        return response()->json($apprentice);
     }
 }

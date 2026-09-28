@@ -20,16 +20,19 @@ class TeacherController extends Controller
 
     public function index(){
 
+        // $teachers = Teacher::all();
+        // return view('teacher.index', compact('teachers'));
+
         $teachers = Teacher::all();
-
-        return view('teacher.index', compact('teachers'));
-
+        return response()->json($teachers);
     }
 
     
     public function store(Request $request){
 
-        $teacher = Teacher::create($request->all());
+        // $teacher = Teacher::create($request->all());
+
+        $teachers = Teacher::create($request->all());
         
         //ADJUNTAR EL PDF
         $file=$request->file("urlFoto");
@@ -37,19 +40,21 @@ class TeacherController extends Controller
         $nombreArchivo = "foto_".time().".".$file->guessExtension();
         $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
 
-        $teacher->urlFoto = $nombreArchivo;
-        $teacher->save();
+        $teachers->urlFoto = $nombreArchivo;
+        $teachers->save();
 
-        return redirect()->route('teacher.index');
+        // return redirect()->route('teacher.index');
 
+        return response()->json($teachers);
     }
 
     public function show ($id){
 
-        $teacher=Teacher::find($id);
+        // $teacher=Teacher::find($id);
+        // return view('teacher.show',compact('teacher'));
 
-        return view('teacher.show',compact('teacher'));
-        
+        $teachers = Teacher::findOrFail($id);
+        return response()->json($teachers);
     }
 
     public function edit(Teacher $teacher){
@@ -62,15 +67,19 @@ class TeacherController extends Controller
 
     public function update(Request $request, Teacher $teacher){
 
+        // $teacher->update($request->all());
+        // return redirect()->route('teacher.index');
+
         $teacher->update($request->all());
-
-        return redirect()->route('teacher.index');
-
+        return response()->json($teacher);
     }
 
     public function destroy(Teacher $teacher)
     {
+        // $teacher->delete();
+        // return redirect()->route('teacher.index');
+
         $teacher->delete();
-        return redirect()->route('teacher.index');
+        return response()->json($teacher);
     }
 }

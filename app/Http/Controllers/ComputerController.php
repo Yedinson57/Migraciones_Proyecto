@@ -27,10 +27,6 @@ class ComputerController extends Controller
 
     public function store(Request $request){
 
-        $request->validate([
-            'number' => 'required|max:255'
-        ]);
-
         $computer = Computer::create($request->all());
         
         //ADJUNTAR EL PDF
@@ -74,13 +70,9 @@ class ComputerController extends Controller
 
         // return redirect()->route('computer.index');
 
-        $request->validate([
-            'name' => 'required|max:255',
-            ]);
-
         $computer->update($request->all());
 
-        return $computer;
+        return response()->json($computer);
 
     }
 

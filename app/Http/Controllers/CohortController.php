@@ -17,47 +17,55 @@ class CohortController extends Controller
 
     public function index(){
 
-        $cohorts = Cohort::all();
+        // $cohorts = Cohort::all();
+        // return view('cohort.index', compact('cohorts'));
 
-        return view('cohort.index', compact('cohorts'));
+        $cohorts = Cohort::all();
+        return response()->json($cohorts);
 
     }
 
     
     public function store(Request $request){
 
-        Cohort::create($request->all());
-        
-        return redirect()->route('cohort.index');
+        // Cohort::create($request->all());
+        // return redirect()->route('cohort.index');
+
+        $cohorts = Cohort::create($request->all());
+        return response()->json($cohorts);
 
     }
 
     public function show ($id){
 
-        $cohorts=Cohort::find($id);
+        // $cohorts=Cohort::find($id);
+        // return view('cohort.show',compact('cohorts'));
 
-        return view('cohort.show',compact('cohorts'));
-        
+        $cohorts = Cohort::findOrFail($id);
+        return response()->json($cohorts);
     }
 
     public function edit(Cohort $cohorts){
 
         $offers = Offer::all();
-
         return view('cohort.edit', compact('cohorts', 'offers'));
     }
 
-    public function update(Request $request, Cohort $cohorts){
+    public function update(Request $request, Cohort $cohort){
 
-        $cohorts->update($request->all());
+        // $cohorts->update($request->all());
+        // return redirect()->route('cohort.index');
 
-        return redirect()->route('cohort.index');
-
+        $cohort->update($request->all());
+        return response()->json($cohort);
     }
 
-    public function destroy(Cohort $cohorts)
+    public function destroy(Cohort $cohort)
     {
-        $cohorts->delete();
-        return redirect()->route('cohort.index');
+        // $cohorts->delete();
+        // return redirect()->route('cohort.index');
+
+        $cohort->delete();
+        return response()->json($cohort);
     }
 }
