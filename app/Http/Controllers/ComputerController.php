@@ -29,14 +29,14 @@ class ComputerController extends Controller
 
         $computer = Computer::create($request->all());
         
-        //ADJUNTAR EL PDF
-        $file=$request->file("urlFoto");
+        // //ADJUNTAR EL PDF
+        // $file=$request->file("urlFoto");
 
-        $nombreArchivo = "foto_".time().".".$file->guessExtension();
-        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+        // $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        // $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
 
-        $computer->urlFoto = $nombreArchivo;
-        $computer->save();
+        // $computer->urlFoto = $nombreArchivo;
+        // $computer->save();
 
         // return redirect()->route('computer.index');
 

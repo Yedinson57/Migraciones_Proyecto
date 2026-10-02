@@ -30,14 +30,14 @@ class AreaController extends Controller
 
         $areas = Area::create($request->all());
         
-        //ADJUNTAR EL PDF
-        $file=$request->file("urlFoto");
+        // //ADJUNTAR EL PDF
+        // $file=$request->file("urlFoto");
 
-        $nombreArchivo = "foto_".time().".".$file->guessExtension();
-        $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+        // $nombreArchivo = "foto_".time().".".$file->guessExtension();
+        // $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
 
-        $areas->urlFoto = $nombreArchivo;
-        $areas->save();
+        // $areas->urlFoto = $nombreArchivo;
+        // $areas->save();
 
         // return redirect()->route('area.index');
 
@@ -81,6 +81,4 @@ class AreaController extends Controller
         $area->delete();
         return response()->json($area);
     }
-
-    
 }
