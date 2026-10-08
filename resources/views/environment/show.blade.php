@@ -46,7 +46,7 @@
 
                         <div class="row g-3 mb-4">
                             <div class="col-6">
-                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Área</span>
+                                <span class="text-muted small d-block mb-1 fw-bold text-uppercase tracking-wider">ID del Centro</span>
                                 <div class="p-3 bg-light rounded-3 text-secondary font-monospace">
                                     {{ $environments['training_center_id'] }}
                                 </div>
